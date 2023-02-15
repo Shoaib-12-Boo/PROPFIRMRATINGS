@@ -1,0 +1,93 @@
+.backg {
+  height: 100vh;
+  background-image: url(../../../public/Assert/bgcolor.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 100%;
+  /* margin: 1px 20px; */
+  /* box-shadow: black 0px 5px 50px 0px; */
+}
+.textcolor {
+  color: #7935b4;
+}
+
+.starbgGood {
+  color: white;
+  background-color: rgb(93, 230, 93);
+}
+.starbg {
+  background-color: lightgray;
+  color: white;
+}
+.starbgBad {
+  background-color: orange;
+  color: white;
+}
+.navBtn {
+  padding: 0 3rem;
+}
+.shotabtn {
+  display: none;
+}
+.imgWidth {
+  width: 25%;
+}
+.navdiv {
+  width: 50%;
+  margin-bottom: 94px;
+}
+
+@media only screen and (max-width: 786px) {
+  .navdiv {
+    width: 100% !important;
+  }
+  .navPic {
+    display: none;
+  }
+  .navBtn {
+    padding: 0px 3rem !important;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .backg {
+    height: 100vh;
+    background-image: none;
+    border-radius: 20px;
+    height: 400px;
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.83),
+      rgba(119, 22, 161, 1)
+    );
+  }
+  .navdiv h2 {
+    font-size: medium;
+  }
+  .navPic {
+    display: none;
+    border-radius: 50px;
+  }
+  .navBtn {
+    padding: 0px 30px !important;
+  }
+  .shotabtn {
+    display: block;
+    background-color: white;
+    border: none;
+  }
+  .navBtn {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .navPic img {
+    width: 350px;
+  }
+  .navBtn {
+    padding: 0px 1.5rem;
+  }
+  .navdiv {
+    width: 55%;
+  }
+}

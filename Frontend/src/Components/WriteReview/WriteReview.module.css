@@ -1,0 +1,19 @@
+.logo{
+    /* background-color: white; */
+    width: 100%;
+    max-width: 40px;
+}
+.main{
+    position: relative;
+}
+.overflow{
+    position: absolute;
+    top: 100px;
+    left: 25%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.fa_star{
+    color:white !important;
+    background-color: rgba(202, 204, 202, 0.822) !important;
+    font-size: larger !important;
+}

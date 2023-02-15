@@ -1,0 +1,36 @@
+.logo img {
+  height: 100px;
+  width: 250px;
+  position: absolute;
+  bottom: 20px;
+}
+.logo {
+  overflow: hidden;
+  position: relative;
+  height: 100px;
+  width: 250px;
+}
+/* .cb {
+  list-style: none;
+} */
+.minus {
+  height: 70px;
+}
+.Mobile {
+  display: none;
+}
+
+@media screen and (max-width: 430px) {
+  .Mobile {
+    display: block;
+  }
+  .mobile{
+    width: 100%;
+    background-color: aliceblue;
+    height: 300px;
+    line-height: 4;
+  }
+    .Pc {
+    display: none !important;
+  }
+}

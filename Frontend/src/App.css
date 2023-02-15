@@ -1,0 +1,13 @@
+.input:focus{
+    outline: none;
+}
+ .card-wrap {
+    background-color: #fff;
+    /* box-shadow: 0px 0px 30px 10px rgba(201, 201, 201, 0.226); */
+    /* width: 22%;
+    height: auto; */
+}
+
+  .textcolor{
+    color: #7935b4;
+  }

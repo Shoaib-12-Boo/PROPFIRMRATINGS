@@ -1,0 +1,72 @@
+.binanceImg {
+  height: 100px;
+}
+.starbgGood {
+  color: white;
+  background-color: rgb(93, 230, 93) !important;
+}
+.starbgGood::before {
+  font-size: x-large;
+}
+.starbg {
+  background-color: lightgray;
+  color: white;
+}
+.coupon{
+  max-width: 300px;
+}
+.starbg::before {
+  font-size: x-large;
+}
+.backg {
+  background-image: linear-gradient(
+    to right,
+    rgba(112, 6, 232, 0.83) 60%,
+    rgba(119, 22, 161, 1)
+  );
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .binanceImg {
+    height: 50px;
+  }
+  .starbgGood::before {
+    font-size: medium;
+  }
+  .backg {
+    font-size: 10px;
+  }
+  i {
+    font-size: small;
+  }
+  .couponImg {
+    width: 16px !important;
+  }
+  .reviewBody {
+    flex-direction: column-reverse;
+  }
+  .visit {
+    width: 20px !important;
+    text-align: center;
+    width: 100% !important;
+    font-size: large;
+    margin-top: 20px;
+    font-weight: 600;
+  }
+  .coupon {
+    /* height: 180px ; */
+    display: none;
+  }
+  .coupon p {
+    font-size: large;
+  }
+  .review {
+    display: block !important;
+    width: 300px;
+  }
+
+  .reviewNav {
+    flex-direction: column;
+  }
+}

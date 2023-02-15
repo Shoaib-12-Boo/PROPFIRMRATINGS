@@ -1,0 +1,8 @@
+@media only screen and (max-width:768px) {
+    .flexcolum{
+        flex-direction: column;
+    }
+    .flexcolum div{
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,20 @@
+
+@media only screen and (max-width: 500px) {
+  .toolHead {
+    margin-left: 10px !important;
+    margin-top: 0px !important;
+  }
+}
+
+.starbgGood {
+  color: white;
+  background-color: rgb(93, 230, 93);
+}
+.starbg {
+  background-color: lightgray;
+  color: white;
+}
+.starbgBad {
+  background-color: orange;
+  color: white;
+}

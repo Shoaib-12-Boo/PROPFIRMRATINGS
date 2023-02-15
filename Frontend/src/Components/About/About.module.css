@@ -1,0 +1,12 @@
+.img-ceo  img{
+    width: 100%;
+}
+.starbgGood {
+  color: white;
+  background-color: rgb(93, 230, 93);
+}
+@media screen and (max-width: 425px) {
+  .aboutP {
+    padding: 10px 0px !important;
+  }
+}
