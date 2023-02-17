@@ -49,11 +49,11 @@ const WriteReview = () => {
               <h5>Rate Your Recent experience</h5>
             </div>
             <select {...form.register("rating")} className="col-md-3 mt-2 form-select" name="" id="">
-              <option selected value="5">5</option>
-              <option value="4">4</option>
-              <option value="3">3</option>
-              <option value="2">2</option>
-              <option value="1">1</option>
+            <option selected value="5">⭐⭐⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="1">⭐</option>
             </select>
             {/* <div className="col-md-4 mt-2">
               <i

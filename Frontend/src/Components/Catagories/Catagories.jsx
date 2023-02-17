@@ -333,11 +333,11 @@ const Catagories = () => {
           />
         </div>
       </div>
-      <div className={`container-fluid px-5 py-5`}>
+      <div className={`container-lg py-5`}>
         <h3 className={`text-dark fw-semibold `}>
           Explore companies by category
         </h3>
-        <div className={`d-flex px-5 gap-3`}>
+        <div className={`d-flex flex-wrap px-3 pt-4 gap-3`}>
           <div className="d-flex flex-column gap-3">
             {cata1.map((item) => {
               return (
@@ -359,7 +359,7 @@ const Catagories = () => {
                       return (
                         <div className={`border-bottom pt-2`}>
                           <Link
-                            className="text-dark"
+                            className="fs-6 text-dark"
                             to={"/search-result/" + item1}
                           >
                             {item1}
@@ -393,7 +393,7 @@ const Catagories = () => {
                       return (
                         <div className={`border-bottom pt-2`}>
                           <Link
-                            className="text-dark"
+                            className="fs-6 text-dark"
                             to={"/search-result/" + item1}
                           >
                             {item1}
@@ -427,7 +427,7 @@ const Catagories = () => {
                       return (
                         <div className={`border-bottom pt-2`}>
                           <Link
-                            className="text-dark"
+                            className="fs-6 text-dark"
                             to={"/search-result/" + item1}
                           >
                             {item1}
@@ -461,7 +461,7 @@ const Catagories = () => {
                       return (
                         <div className={`border-bottom pt-2`}>
                           <Link
-                            className="text-dark"
+                            className="fs-6 text-dark"
                             to={"/search-result/" + item1}
                           >
                             {item1}

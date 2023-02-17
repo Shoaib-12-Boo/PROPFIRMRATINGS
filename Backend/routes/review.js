@@ -17,6 +17,9 @@ route.get("/get-admin-reviews",async(req,resp)=>{
     const reviews = await Review.find()
     resp.json({reviews})
 })
+
+
+
 route.delete("/delete-review", async (req, resp) => {
     await Review.findByIdAndDelete(req.query.obj.id);
     User.findOne({user_name:req.query.obj.user},(err,user)=>{

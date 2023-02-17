@@ -109,7 +109,7 @@ let review = [1, 2, 3];
               </Link>
             </div>
             <div>
-              <select onClick={()=>{navigate("/write-review/"+company.company_name+"/"+company._id)}} className="form-select w-100 ">
+              <select onChange={()=>{navigate("/write-review/"+company.company_name+"/"+company._id)}} className="form-select w-100 ">
                 <option value="5">⭐⭐⭐⭐⭐</option>
                 <option value="4">⭐⭐⭐⭐</option>
                 <option value="3">⭐⭐⭐</option>

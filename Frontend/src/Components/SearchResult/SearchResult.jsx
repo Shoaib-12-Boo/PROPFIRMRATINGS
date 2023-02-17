@@ -14,33 +14,33 @@ const SearchResult = () => {
   return (
     <div>
       <h2 className={`mx-auto text-center p-5`}>Result for {param.search.charAt(0).toUpperCase() + param.search.slice(1)}</h2>
-      <div className="container bg-light py-5 mb-5 d-flex">
-        <div className={`col-lg-3 border bg-white rounded`}>
-          <h5 className={`text-dark fw-semibold`}>Rating</h5>
-          <div className={`ms-3 my-3`}>
+      {companies.length?<div className="container bg-light rounded-4 py-5 mb-5 d-flex">
+        <div className={`col-lg-3 border bg-white rounded-4`}>
+          <h5 className={`text-dark pt-3 ps-1 fw-semibold`}>Rating</h5>
+          <div className={`ms-3 my-2`}>
             <button
-              className={`btn border-primary border-2 text-dark rounded-0 fs-6`}
+              className={`btn border border-dark w-25 text-dark fs-6`}
             >
               Any
             </button>
             <button
-              className={`btn border-secondary border-2 text-dark rounded-0 fs-6`}
+              className={`btn border border-dark w-25 text-dark fs-6`}
             >
               2.0+
             </button>
             <button
-              className={`btn border-success border-2 text-dark rounded-0 fs-6`}
+              className={`btn border border-dark w-25 text-dark fs-6`}
             >
               3.0+
             </button>
             <button
-              className={`btn border-warning border-2 text-dark rounded-0 fs-6`}
+              className={`btn border border-dark w-25 text-dark fs-6`}
             >
               4.0+
             </button>
           </div>
-          <h5>Location</h5>
-          <select className="form-select my-3">
+          <h5 className="fw-semibold ps-1">Location</h5>
+          <select className="form-select py-2 my-3">
             {options.map((item) => {
               return <option>{item.label}</option>;
             })}
@@ -48,7 +48,7 @@ const SearchResult = () => {
           <div className="mb-3">
             <input
               type="text"
-              className="form-control py-4"
+              className="form-control py-2"
               placeholder="City or Zip code"
             />
           </div>
@@ -84,7 +84,7 @@ const SearchResult = () => {
           </div>
   )})}
         </div>
-      </div>
+      </div>:<div className={`text-center bg-warning py-5 my-5`}><h1 className={`fw-bold`} style={{fontSize:"60px"}}>Oops, I found Nothing</h1></div>}
     </div>
   );
 };
