@@ -55,23 +55,6 @@ const WriteReview = () => {
                 <option value="2">⭐⭐</option>
                 <option value="1">⭐</option>
             </select>
-            {/* <div className="col-md-4 mt-2">
-              <i
-                className={`fa-solid mx-1 p-1 mb-3 ${style.fa_star} fa-star fa-square-star fs-5 border`}
-              />
-              <i
-                className={`fa-solid mx-1 p-1 mb-3 ${style.fa_star} fa-star fa-square-star fs-5 border`}
-              />
-              <i
-                className={`fa-solid mx-1 p-1 mb-3 ${style.fa_star} fa-star fa-square-star fs-5 border`}
-              />
-              <i
-                className={`fa-solid mx-1 p-1 mb-3 ${style.fa_star} fa-star fa-square-star fs-5 border`}
-              />
-              <i
-                className={`fa-solid mx-1 p-1 mb-3 ${style.fa_star} fa-star fa-square-star fs-5 border`}
-              />
-            </div> */}
           </div>
         </div>
       </section>
@@ -150,7 +133,7 @@ const WriteReview = () => {
                   to={"/login"}
                   className="btn btn-outline-primary rounded-5 text-uppercase"
                 >
-                  Connect wallet
+                  Please Login
                 </Link>
               )}
             </div>
