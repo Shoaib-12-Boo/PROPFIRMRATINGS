@@ -28,7 +28,7 @@ const NavBar = () => {
             <Link to={"/about"}>About</Link>
           </li>
           <li type="button" className={`mt-2 fs-6 fw-semibold`}>
-            Catagories
+          <Link to={"/catagories"}>Catagories</Link>
           </li>
           <li type="button">
             <button
@@ -60,7 +60,7 @@ const NavBar = () => {
         </li>
         <div className="border" />
         <li type="button" className={`mt-2 fs-5 fw-semibold`}>
-          <Link to={"/review"}>Review</Link>
+          <Link to={"/catagories"}>Catagories</Link>
         </li>
         <div className="border" />
         <li type="button">

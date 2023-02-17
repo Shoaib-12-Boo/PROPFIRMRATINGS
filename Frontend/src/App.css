@@ -7,7 +7,13 @@
     /* width: 22%;
     height: auto; */
 }
-
+body{
+  color: rgb(15, 15, 15);
+}
   .textcolor{
     color: #7935b4;
   }
+
+  .seachicon::before{
+    font-size: 26px;
+}

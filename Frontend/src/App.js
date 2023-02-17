@@ -10,6 +10,7 @@ import Review from "./Components/ReviewPage/Review";
 import WriteReview from "./Components/WriteReview/WriteReview";
 import About from "./Components/About/About";
 import SearchResult from "./Components/SearchResult/SearchResult";
+import Catagories from "./Components/Catagories/Catagories";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             element={<WriteReview />}
           />
           <Route path="/about" element={<About />} />
+          <Route path="/catagories" element={<Catagories />} />
           <Route path="/search-result/:search" element={<SearchResult />} />
         </Routes>
         <Footer />
