@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Catagories.module.css";
+import { Link } from "react-router-dom";
 
 const Catagories = () => {
   let cata1 = [
@@ -64,6 +65,18 @@ const Catagories = () => {
         "Manufacturing",
         "Production Services",
         "Tools & Equipment",
+      ],
+    },
+    {
+      icon: '<i class="fa fa-laptop"/>',
+      color: "#9ff6d3",
+      name: "Electronics Technology",
+      cata: [
+        "Appliances & Electronics",
+        "Audio & Visual",
+        "Computers & Phones",
+        "Internet & Software",
+        "Repair & Services",
       ],
     },
   ];
@@ -193,6 +206,35 @@ const Catagories = () => {
         "Registration Services",
       ],
     },
+    {
+      icon: '<i class="fa fa-computer-classic"/>',
+      color: "#ffc5d5",
+      name: "Media Publishing",
+      cata: [
+        "Books & Magazines",
+        "Media & Information",
+        "Photography",
+        "Video & Sound",
+      ],
+    },
+    {
+      icon: '<i class="fa fa-location-smile"/>',
+      color: "#ffc5d5",
+      name: "Public Local Services",
+      cata: [
+        "Employment & Career",
+        "Funeral & Memorial",
+        "Housing Associations",
+        "Kids & Family",
+        "Military & Veteran",
+        "Nature & Environment",
+        "Professional Organizations",
+        "Public Services & Welfare",
+        "Religious Institutions",
+        "Shelters & Homes",
+        "Waste Management",
+      ],
+    },
   ];
 
   let cata4 = [
@@ -247,6 +289,35 @@ const Catagories = () => {
         "Tennis & Racquet Sports",
       ],
     },
+    {
+      icon: '<i class="fa  fa-car-building"/>',
+      color: "#ffc999",
+      name: "Travel Vacation",
+      cata: [
+        "Accommodation & Lodging",
+        "Activities & Tours",
+        "Airlines & Air Travel",
+        "Hotels",
+        "Travel Agencies",
+      ],
+    },
+    {
+      icon: '<i class="fa  fa-car"/>',
+      color: "#fffbd6",
+      name: "Vehicles Transportation",
+      cata: [
+        "Air & Water Transport",
+        "Airports & Parking",
+        "Auto Parts & Wheels",
+        "Bicycles",
+        "Cars & Trucks",
+        "Motorcycle & Powersports",
+        "Other Vehicles & Trailers",
+        "Taxis & Public Transport",
+        "Vehicle Rental",
+        "Vehicle Repair & Fuel",
+      ],
+    },
   ];
 
   return (
@@ -268,100 +339,140 @@ const Catagories = () => {
         </h3>
         <div className={`d-flex px-5 gap-3`}>
           <div className="d-flex flex-column gap-3">
-          {cata1.map((item) => {
-            return (
-              <div className={`border ${style.divCata} rounded-3 overflow-hidden`}>
+            {cata1.map((item) => {
+              return (
                 <div
-                  className={`text-center rounded-top px-3 pt-4`}
-                  style={{ backgroundColor: `${item.color}`,height:'110px', }}
+                  className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
-                  <div dangerouslySetInnerHTML={{ __html: item.icon }} />
-                  <h5 className="fw-semibold">{item.name}</h5>
+                  <div
+                    className={`text-center rounded-top px-3 pt-4`}
+                    style={{
+                      backgroundColor: `${item.color}`,
+                      height: "110px",
+                    }}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: item.icon }} />
+                    <h5 className="fw-semibold">{item.name}</h5>
+                  </div>
+                  <div className={`px-3 fs-6`}>
+                    {item.cata.map((item1) => {
+                      return (
+                        <div className={`border-bottom pt-2`}>
+                          <Link
+                            className="text-dark"
+                            to={"/search-result/" + item1}
+                          >
+                            {item1}
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className={`px-3 fs-6`}>
-                  {item.cata.map((item1) => {
-                    return (
-                      <div className={`border-bottom pt-2`}>
-                        <p>{item1}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
           </div>
           <div className="d-flex flex-column gap-3">
-          {cata2.map((item) => {
-            return (
-              <div className={`border ${style.divCata} rounded-3 overflow-hidden`}>
+            {cata2.map((item) => {
+              return (
                 <div
-                  className={`text-center px-3 pt-4`}
-                  style={{ backgroundColor: `${item.color}`,height:'110px', }}
+                  className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
-                  <div dangerouslySetInnerHTML={{ __html: item.icon }} />
-                  <h5 className="fw-semibold">{item.name}</h5>
+                  <div
+                    className={`text-center px-3 pt-4`}
+                    style={{
+                      backgroundColor: `${item.color}`,
+                      height: "110px",
+                    }}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: item.icon }} />
+                    <h5 className="fw-semibold">{item.name}</h5>
+                  </div>
+                  <div className={`px-3 fs-6`}>
+                    {item.cata.map((item1) => {
+                      return (
+                        <div className={`border-bottom pt-2`}>
+                          <Link
+                            className="text-dark"
+                            to={"/search-result/" + item1}
+                          >
+                            {item1}
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className={`px-3 fs-6`}>
-                  {item.cata.map((item1) => {
-                    return (
-                      <div className={`border-bottom pt-2`}>
-                        <p>{item1}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
           </div>
           <div className="d-flex flex-column gap-3">
-          {cata3.map((item) => {
-            return (
-              <div className={`border ${style.divCata} rounded-3 overflow-hidden`}>
+            {cata3.map((item) => {
+              return (
                 <div
-                  className={`text-center px-3 pt-4`}
-                  style={{ backgroundColor: `${item.color}`,height:'110px', }}
+                  className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
-                  <div dangerouslySetInnerHTML={{ __html: item.icon }} />
-                  <h5 className="fw-semibold">{item.name}</h5>
+                  <div
+                    className={`text-center px-3 pt-4`}
+                    style={{
+                      backgroundColor: `${item.color}`,
+                      height: "110px",
+                    }}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: item.icon }} />
+                    <h5 className="fw-semibold">{item.name}</h5>
+                  </div>
+                  <div className={`px-3 fs-6`}>
+                    {item.cata.map((item1) => {
+                      return (
+                        <div className={`border-bottom pt-2`}>
+                          <Link
+                            className="text-dark"
+                            to={"/search-result/" + item1}
+                          >
+                            {item1}
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className={`px-3 fs-6`}>
-                  {item.cata.map((item1) => {
-                    return (
-                      <div className={`border-bottom pt-2`}>
-                        <p>{item1}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
           </div>
           <div className="d-flex flex-column gap-3">
-          {cata4.map((item) => {
-            return (
-              <div className={`border ${style.divCata} rounded-3 overflow-hidden`}>
+            {cata4.map((item) => {
+              return (
                 <div
-                  className={`text-center px-3 pt-4`}
-                  style={{ backgroundColor: `${item.color}`,height:'110px',}}
+                  className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
-                  <div dangerouslySetInnerHTML={{ __html: item.icon }} />
-                  <h5 className="fw-semibold">{item.name}</h5>
+                  <div
+                    className={`text-center px-3 pt-4`}
+                    style={{
+                      backgroundColor: `${item.color}`,
+                      height: "110px",
+                    }}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: item.icon }} />
+                    <h5 className="fw-semibold">{item.name}</h5>
+                  </div>
+                  <div className={`px-3 fs-6`}>
+                    {item.cata.map((item1) => {
+                      return (
+                        <div className={`border-bottom pt-2`}>
+                          <Link
+                            className="text-dark"
+                            to={"/search-result/" + item1}
+                          >
+                            {item1}
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-                <div className={`px-3 fs-6`}>
-                  {item.cata.map((item1) => {
-                    return (
-                      <div className={`border-bottom pt-2`}>
-                        <p>{item1}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
           </div>
         </div>
       </div>
