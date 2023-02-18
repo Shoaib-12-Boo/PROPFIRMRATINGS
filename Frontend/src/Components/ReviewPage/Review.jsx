@@ -20,7 +20,7 @@ let review = [1, 2, 3];
   return (
     <div className="pb-5">
       <div
-        className={`${style.reviewNav} bg-dark mb-5 text-white py-4 d-flex justify-content-around rounded-4`}
+        className={`${style.reviewNav} mb-5 text-white py-4 d-flex justify-content-around rounded-4`}
       >
         <div className={`d-flex px-1  mt-5`}>
           <img

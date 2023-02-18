@@ -12,7 +12,7 @@
   background-color: lightgray;
   color: white;
 }
-.coupon{
+.coupon {
   max-width: 300px;
 }
 .starbg::before {
@@ -25,6 +25,12 @@
     rgba(119, 22, 161, 1)
   );
   font-size: 15px;
+}
+.reviewNav {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 1),
+    rgba(0, 0, 0, 0.83)
+  );
 }
 
 @media only screen and (max-width: 768px) {
