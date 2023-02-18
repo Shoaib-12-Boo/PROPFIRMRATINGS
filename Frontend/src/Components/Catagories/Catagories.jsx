@@ -333,11 +333,11 @@ const Catagories = () => {
           />
         </div>
       </div>
-      <div className={`container-lg py-5`}>
+      <div className={`container-fluid py-5`}>
         <h3 className={`text-dark fw-semibold `}>
           Explore companies by category
         </h3>
-        <div className={`d-flex flex-wrap px-3 pt-4 gap-3`}>
+        <div className={`d-flex flex-wrap pt-4 gap-3`} style={{padding:'0px 2.6%'}}>
           <div className="d-flex flex-column gap-3">
             {cata1.map((item) => {
               return (
@@ -359,9 +359,9 @@ const Catagories = () => {
                     {item.cata.map((item1) => {
                       return (
                         
-                        <div key={item1} className={`border-bottom pt-2`}>
+                        <div key={item1} className={`border-bottom py-2`}>
                           <Link
-                            className="fs-6 text-dark"
+                            className="fs-6 text-dark mb-3"
                             to={"/search-result/" + item1}
                           >
                             {item1}
@@ -394,7 +394,7 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        <div key={item1} className={`border-bottom pt-2`}>
+                        <div key={item1} className={`border-bottom py-2`}>
                           <Link
                             className="fs-6 text-dark"
                             to={"/search-result/" + item1}
@@ -429,7 +429,7 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        <div key={item1} className={`border-bottom pt-2`}>
+                        <div key={item1} className={`border-bottom py-2`}>
                           <Link
                             className="fs-6 text-dark"
                             to={"/search-result/" + item1}
@@ -464,9 +464,9 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        <div key={item1} className={`border-bottom pt-2`}>
+                        <div key={item1} className={`border-bottom py-2`}>
                           <Link
-                            className="fs-6 text-dark"
+                            className="fs-6 text-dark "
                             to={"/search-result/" + item1}
                           >
                             {item1}

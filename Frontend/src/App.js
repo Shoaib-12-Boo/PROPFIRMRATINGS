@@ -14,6 +14,7 @@ import Catagories from "./Components/Catagories/Catagories";
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import ContactUs from "./Components/ContactUs/ContactUs";
 
 function App() {
   let token = localStorage.getItem("sessionToken")
@@ -42,10 +43,10 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route
             path="/write-review/:companyName/:companyId"
-            element={<WriteReview />}
-          />
+            element={<WriteReview />}/>
           <Route path="/about" element={<About />} />
           <Route path="/catagories" element={<Catagories />} />
+          <Route path="/contact" element={<ContactUs/>} />
           <Route path="/search-result/:search" element={<SearchResult />} />
         </Routes>
         <Footer />

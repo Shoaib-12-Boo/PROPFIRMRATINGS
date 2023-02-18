@@ -1,10 +1,10 @@
 import axios from "axios";
-import style from './signin.module.css'
+import style from "./signin.module.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { NotificationManager } from 'react-notifications';
+// import { NotificationManager } from "react-notifications";
 import { useGoogleLogin } from "@react-oauth/google";
 
 const SignIn = () => {
@@ -14,15 +14,15 @@ const SignIn = () => {
   const loginData = (data) => {
     axios.post("/login", data).then((resp) => {
       if (resp.data.success) {
-        localStorage.setItem('sessionToken',resp.data.token)
-        NotificationManager.success("Login Successful");
+        localStorage.setItem("sessionToken", resp.data.token);
+        console.log("helll");
         dispatch({
           type: "LOGINDATA",
           payload: resp.data.user,
         });
         navigate("/");
       } else {
-        NotificationManager.error("Wrong Credentials");
+        console.log("helll");
       }
     });
   };
@@ -30,15 +30,15 @@ const SignIn = () => {
     onSuccess: (codeResponse) => {
       axios.post("/google-login", codeResponse).then((resp) => {
         if (resp.data.success) {
-          localStorage.setItem('sessionToken',resp.data.token)
-          NotificationManager.success("Login Successful");
+          localStorage.setItem("sessionToken", resp.data.token);
+          console.log("hello");
           dispatch({
             type: "LOGINDATA",
             payload: resp.data.user,
           });
           navigate("/");
         } else {
-          NotificationManager.error("Wrong Credentials");
+          console.log("x");
         }
       });
     },
@@ -48,13 +48,16 @@ const SignIn = () => {
     <>
       <div className={`container ${style.pad} p-5`}>
         <div className={`mt-5 ${style.pad}`}></div>
-        <div className={`w-50 shadow-lg py-5 px-5 ${style.form} rounded-5 m-auto`}>
-        <div className="text-center mb-4">
+        <div
+          className={`w-50 shadow-lg py-5 px-5 ${style.form} rounded-5 m-auto`}
+        >
+          <div className="text-center mb-4">
             <button
               className="btn btn-secondary fs-5 m-auto"
               onClick={() => login()}
             >
-              <img style={{width:"40px"}} src="./Assert/google.png" alt="" /> Sign in with Google 🚀
+              <img style={{ width: "40px" }} src="./Assert/google.png" alt="" />{" "}
+              Sign in with Google 🚀
             </button>
           </div>
           <form onSubmit={form.handleSubmit(loginData)}>

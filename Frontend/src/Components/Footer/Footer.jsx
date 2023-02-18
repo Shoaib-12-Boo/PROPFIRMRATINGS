@@ -4,7 +4,7 @@ import style from "./Footer.module.css";
 const Footer = () => {
   return (
     <>
-      <div className={`${style.background}`}>
+      <div className={`${style.background} rounded-top`}>
         <div className={`container`}></div>
         <div className={`d-flex justify-content-evenly align-baseline `}>
           <div className={`text-white`}>
