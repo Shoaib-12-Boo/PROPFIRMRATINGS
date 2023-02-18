@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import style from "./Home.module.css";
-import axios from 'axios'
+import axios from "axios";
 
 const Home = () => {
   let arr = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -13,12 +13,11 @@ const Home = () => {
     navigate("/search-result/" + data.search);
   };
 
-
-  useEffect(()=>{
-    axios.get('/get-recent-reviews').then((resp)=>{
-      console.log(resp.data)
-    })
-  },[])
+  useEffect(() => {
+    axios.get("/get-recent-reviews").then((resp) => {
+      console.log(resp.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -48,9 +47,7 @@ const Home = () => {
                       SEARCH
                     </button>
                     <button className={`${style.shotabtn}`}>
-                      <i
-                        className={`fa  fa-magnifying-glass`}
-                      />
+                      <i className={`fa  fa-magnifying-glass`} />
                     </button>
                   </div>
                 </form>
@@ -118,7 +115,10 @@ const Home = () => {
             >
               {arr.map((item) => {
                 return (
-                  <div key={item} className="card-wrap col-md-5 col-lg-3 col-sm-6 shadow rounded-3 mb-2 px-3 py-3">
+                  <div
+                    key={item}
+                    className="card-wrap col-md-5 col-lg-3 col-sm-6 shadow rounded-3 mb-2 px-3 py-3"
+                  >
                     <div>
                       <div>
                         <span>
@@ -172,8 +172,8 @@ const Home = () => {
             >
               {cryptoArr.map((item) => {
                 return (
-                  <div 
-                  key={item}
+                  <div
+                    key={item}
                     className={`border px-4 shadow rounded-3 col-lg-3 col-md-5 col-sm-7 py-4`}
                   >
                     <img

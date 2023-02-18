@@ -4,8 +4,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { NotificationManager } from 'react-notifications';
 import { useGoogleLogin } from "@react-oauth/google";
+import {toast} from 'react-hot-toast'
 
 const SignIn = () => {
   const form = useForm();
@@ -15,14 +15,14 @@ const SignIn = () => {
     axios.post("/login", data).then((resp) => {
       if (resp.data.success) {
         localStorage.setItem('sessionToken',resp.data.token)
-        NotificationManager.success("Login Successful");
+        toast.success('Successfully Login')
         dispatch({
           type: "LOGINDATA",
           payload: resp.data.user,
         });
         navigate("/");
       } else {
-        NotificationManager.error("Wrong Credentials");
+        toast.error("Oops, Invalid Credentials")
       }
     });
   };
@@ -31,14 +31,14 @@ const SignIn = () => {
       axios.post("/google-login", codeResponse).then((resp) => {
         if (resp.data.success) {
           localStorage.setItem('sessionToken',resp.data.token)
-          NotificationManager.success("Login Successful");
+          toast.success('Successfully Login')
           dispatch({
             type: "LOGINDATA",
             payload: resp.data.user,
           });
           navigate("/");
         } else {
-          NotificationManager.error("Wrong Credentials");
+          toast.error("Oops, got some error")
         }
       });
     },

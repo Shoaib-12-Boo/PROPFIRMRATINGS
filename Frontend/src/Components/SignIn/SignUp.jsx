@@ -4,7 +4,7 @@ import style from './signup.module.css'
 import { useGoogleLogin } from "@react-oauth/google";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -25,7 +25,6 @@ const SignUp = () => {
       })
       .catch((err) => {
         toast.error("Unable to SignUp");
-        console.log(err);
       });
   };
   let dispatch = useDispatch();
@@ -37,6 +36,7 @@ const SignUp = () => {
           type: "LOGINDATA",
           payload: resp.data.obj,
         });
+        toast.success("SignUp Successfully");
         navigate("/");
       });
     },
