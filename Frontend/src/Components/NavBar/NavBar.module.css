@@ -19,6 +19,9 @@
 .Mobile {
   display: none;
 }
+.searchicon::before{
+  font-size: x-large;
+}
 
 @media screen and (max-width: 430px) {
   .Mobile {

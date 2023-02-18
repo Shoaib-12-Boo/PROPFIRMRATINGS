@@ -48,7 +48,7 @@
     padding: 0px 3rem !important;
   }
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 430px) {
   .backg {
     height: 100vh;
     background-image: none;
@@ -80,7 +80,7 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1030px) {
   .navPic img {
     width: 350px;
   }

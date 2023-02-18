@@ -32,7 +32,7 @@ const NavBar = () => {
           </li>
           <li type="button">
             <button
-              className={`btn btn-outline-primary px-4 py-2 fw-semibold fs-6 rounded-pill`}
+              className={Object.keys(user).length !== 0?`btn btn-outline-danger px-4 py-2 fw-semibold fs-6 rounded-pill`:`btn btn-outline-primary px-4 py-2 fw-semibold fs-6 rounded-pill`}
               onClick={() => {
                 if (Object.keys(user).length !== 0) {
                   console.log(user.user_name);
@@ -41,12 +41,12 @@ const NavBar = () => {
                 }
               }}
             >
-              {Object.keys(user).length !== 0 ? user.user_name : "Login"}
+              {Object.keys(user).length !== 0 ? "Log Out" : "Login"}
             </button>
           </li>
         </ul>
-        <div className={`${style.Mobile}`}>
-          <i onClick={mobile} className="fa-duotone fa-bars" />
+        <div className={`${style.Mobile} pt-3`}>
+          <i onClick={mobile} className={`fa ${style.searchicon} fa-bars`} />
         </div>
       </div>
       {/* Burger NavBar  */}
@@ -76,6 +76,7 @@ const NavBar = () => {
           >
             {Object.keys(user).length !== 0 ? user.user_name : "Login"}
           </button>
+          <button>Log Out</button>
         </li>
       </ul>
     </div>

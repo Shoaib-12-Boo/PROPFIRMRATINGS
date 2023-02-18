@@ -73,7 +73,7 @@ const About = () => {
             >
               {arr.map((item) => {
                 return (
-                  <div className="card-wrap col-md-5 col-lg-3 col-sm-6 shadow rounded-3 mb-2 px-3 py-3">
+                  <div key={item} className="card-wrap col-md-5 col-lg-3 col-sm-6 shadow rounded-3 mb-2 px-3 py-3">
                     <div>
                       <div>
                         <span>

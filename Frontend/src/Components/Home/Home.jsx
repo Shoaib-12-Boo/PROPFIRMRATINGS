@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import style from "./Home.module.css";
+import axios from 'axios'
 
 const Home = () => {
   let arr = [1, 2, 3, 4, 5, 6, 7, 8];
   let cryptoArr = [1, 2, 3, 4];
   const form = useForm();
-  const navigate = useNavigate()
-  const searchCompany = (data)=>{
-    navigate('/search-result/'+data.search)
-  }
+  const navigate = useNavigate();
+  const searchCompany = (data) => {
+    navigate("/search-result/" + data.search);
+  };
+
+
+  useEffect(()=>{
+    axios.get('/get-recent-reviews').then((resp)=>{
+      console.log(resp.data)
+    })
+  },[])
 
   return (
     <div>
@@ -24,22 +32,28 @@ const Home = () => {
                 FIND PROPS FIRMS YOU CAN TRUST <br /> FOR YOUR NEXT INVESTMENT
               </h2>
               <div className="mb-3 pe-5">
-                  <form onSubmit={form.handleSubmit(searchCompany)}>
-                <div className={`bg-white rounded-pill pe-1 py-1 d-flex ps-3`}>
-                  <input
-                    {...form.register("search")}
-                    className={` ${style.navText} input border-0 w-75 py-2`}
-                    placeholder="category"
-                    type="text"
+                <form onSubmit={form.handleSubmit(searchCompany)}>
+                  <div
+                    className={`bg-white rounded-pill pe-1 py-1 d-flex ps-3`}
+                  >
+                    <input
+                      {...form.register("search")}
+                      className={` ${style.navText} input border-0 w-75 py-2`}
+                      placeholder="category"
+                      type="text"
                     />
-                  <button
-                    className={`${style.navBtn} btn rounded-pill fs-6 py-1 ms-3 btn-primary`}
+                    <button
+                      className={`${style.navBtn} btn rounded-pill fs-6 py-1 ms-3 btn-primary`}
                     >
-                    SEARCH
-                  </button>
-                  <button className={`${style.shotabtn}`}>🔍</button>
-                </div>
-                    </form>
+                      SEARCH
+                    </button>
+                    <button className={`${style.shotabtn}`}>
+                      <i
+                        className={`fa  fa-magnifying-glass`}
+                      />
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
             <div className={`${style.navPic} px-3`}>
@@ -104,7 +118,7 @@ const Home = () => {
             >
               {arr.map((item) => {
                 return (
-                  <div className="card-wrap col-md-5 col-lg-3 col-sm-6 shadow rounded-3 mb-2 px-3 py-3">
+                  <div key={item} className="card-wrap col-md-5 col-lg-3 col-sm-6 shadow rounded-3 mb-2 px-3 py-3">
                     <div>
                       <div>
                         <span>
@@ -153,10 +167,13 @@ const Home = () => {
               Top reviewed crypto
               <span className={`${style.textcolor}`}>wallets</span>
             </h2>
-            <div className={`d-flex container justify-content-center flex-wrap text-center`}>
+            <div
+              className={`d-flex container justify-content-center flex-wrap text-center`}
+            >
               {cryptoArr.map((item) => {
                 return (
-                  <div
+                  <div 
+                  key={item}
                     className={`border px-4 shadow rounded-3 col-lg-3 col-md-5 col-sm-7 py-4`}
                   >
                     <img

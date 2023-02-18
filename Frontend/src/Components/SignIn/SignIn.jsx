@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { NotificationManager } from 'react-notifications';
 import { useGoogleLogin } from "@react-oauth/google";
 
 const SignIn = () => {
@@ -14,27 +14,32 @@ const SignIn = () => {
   const loginData = (data) => {
     axios.post("/login", data).then((resp) => {
       if (resp.data.success) {
-        console.log("Login Successfully");
+        localStorage.setItem('sessionToken',resp.data.token)
+        NotificationManager.success("Login Successful");
         dispatch({
           type: "LOGINDATA",
           payload: resp.data.user,
         });
-        toast.success("Login Successfully");
         navigate("/");
       } else {
-        console.log("Invalid Credentials");
-        toast.error("Login Error");
+        NotificationManager.error("Wrong Credentials");
       }
     });
   };
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
       axios.post("/google-login", codeResponse).then((resp) => {
-        dispatch({
-          type: "LOGINDATA",
-          payload: resp.data.obj,
-        });
-        navigate("/");
+        if (resp.data.success) {
+          localStorage.setItem('sessionToken',resp.data.token)
+          NotificationManager.success("Login Successful");
+          dispatch({
+            type: "LOGINDATA",
+            payload: resp.data.user,
+          });
+          navigate("/");
+        } else {
+          NotificationManager.error("Wrong Credentials");
+        }
       });
     },
   });

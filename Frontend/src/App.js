@@ -11,9 +11,25 @@ import WriteReview from "./Components/WriteReview/WriteReview";
 import About from "./Components/About/About";
 import SearchResult from "./Components/SearchResult/SearchResult";
 import Catagories from "./Components/Catagories/Catagories";
+import { useEffect } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 
 function App() {
-
+  let token = localStorage.getItem("sessionToken")
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    console.log(token)
+    let token1 = {token}
+    if(token){
+      axios.post('/check-session',token1).then((resp)=>{
+        dispatch({
+          type: "LOGINDATA",
+          payload: resp.data.user,
+        });
+      })
+    }
+  },[])
   
   return (
     <>

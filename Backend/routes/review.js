@@ -36,4 +36,16 @@ route.delete("/delete-review", async (req, resp) => {
   });
 
 
+  route.get('/get-recent-reviews',async(req,resp)=>{
+    const reviews =await Review.find()
+    if(reviews.length<=8){
+        resp.json({reviews})
+    }else{
+        let small = reviews.slice(0,8)
+        resp.json({reviews:small})
+    }
+  })
+
+
+
 module.exports = route;

@@ -325,7 +325,7 @@ const Catagories = () => {
       <div className={`text-center py-5 bg-light`}>
         <h2 className={`fw-bold text-dark mt-4`}>What are you looking for?</h2>
         <div className={`mx-auto bg-white rounded-3 mt-3 mb-5 ${style.inputP}`}>
-          <i class={`fa ${style.seachicon} me-3 fa-magnifying-glass`}></i>
+          <i className={`fa ${style.seachicon} me-3 fa-magnifying-glass`}></i>
           <input
             className={`input border-0 py-2 fs-5`}
             placeholder="Search"
@@ -342,6 +342,7 @@ const Catagories = () => {
             {cata1.map((item) => {
               return (
                 <div
+                key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
@@ -357,7 +358,8 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        <div className={`border-bottom pt-2`}>
+                        
+                        <div key={item1} className={`border-bottom pt-2`}>
                           <Link
                             className="fs-6 text-dark"
                             to={"/search-result/" + item1}
@@ -376,6 +378,7 @@ const Catagories = () => {
             {cata2.map((item) => {
               return (
                 <div
+                key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
@@ -391,7 +394,7 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        <div className={`border-bottom pt-2`}>
+                        <div key={item1} className={`border-bottom pt-2`}>
                           <Link
                             className="fs-6 text-dark"
                             to={"/search-result/" + item1}
@@ -410,6 +413,7 @@ const Catagories = () => {
             {cata3.map((item) => {
               return (
                 <div
+                key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
@@ -425,7 +429,7 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        <div className={`border-bottom pt-2`}>
+                        <div key={item1} className={`border-bottom pt-2`}>
                           <Link
                             className="fs-6 text-dark"
                             to={"/search-result/" + item1}
@@ -444,6 +448,7 @@ const Catagories = () => {
             {cata4.map((item) => {
               return (
                 <div
+                key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
@@ -459,7 +464,7 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        <div className={`border-bottom pt-2`}>
+                        <div key={item1} className={`border-bottom pt-2`}>
                           <Link
                             className="fs-6 text-dark"
                             to={"/search-result/" + item1}
