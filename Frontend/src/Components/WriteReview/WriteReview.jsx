@@ -33,22 +33,18 @@ const WriteReview = () => {
           </div>
           <div className="col-4" />
           <div className="col-sm-4 fw-bold">
-            <img
-              src="./Assert/Binance-Emblem.png"
-              className={`${style.logo}`}
-              alt="Binance Logo"
-            />
+            
             <span className={`fs-4 mt-2`}>{param.companyName}</span>
           </div>
         </div>
         <div
-          className={`col-md-6 p-2 bg-light text-black ${style.overflow} rounded-2`}
+          className={`col-md-6 p-2 bg-white text-black ${style.overflow} rounded-2`}
         >
-          <div className="row">
-            <div className="col-md-8 mt-1">
+          <div className={`row`}>
+            <div className={`col-md-8 mt-1 fw-semibold ${style.fontsize}`}>
               <h5>Rate Your Recent experience</h5>
             </div>
-            <select {...form.register("rating")} className="col-md-3 mt-2 form-select" name="" id="">
+            <select {...form.register("rating")} className= "col-md-3 mt-2 form-select" name="" id="">
             <option selected value="5">⭐⭐⭐⭐⭐</option>
                 <option value="4">⭐⭐⭐⭐</option>
                 <option value="3">⭐⭐⭐</option>
@@ -65,7 +61,7 @@ const WriteReview = () => {
         >
           
             <div className="mt-2 mb-2">
-              <label className="form-label fw-bold" htmlFor="title">
+              <label className={`form-label ${style.fontsize} fw-bold`} htmlFor="title">
                 Title of the review
               </label>
               <input
