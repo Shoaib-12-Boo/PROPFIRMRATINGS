@@ -17,21 +17,21 @@ import { useDispatch } from "react-redux";
 import ContactUs from "./Components/ContactUs/ContactUs";
 
 function App() {
-  let token = localStorage.getItem("sessionToken")
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    console.log(token)
-    let token1 = {token}
-    if(token){
-      axios.post('/check-session',token1).then((resp)=>{
+  let token = localStorage.getItem("sessionToken");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(token);
+    let token1 = { token };
+    if (token) {
+      axios.post("/check-session", token1).then((resp) => {
         dispatch({
           type: "LOGINDATA",
           payload: resp.data.user,
         });
-      })
+      });
     }
-  },[])
-  
+  }, []);
+
   return (
     <>
       <BrowserRouter>
@@ -43,12 +43,15 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route
             path="/write-review/:companyName/:companyId"
-            element={<WriteReview />}/>
+            element={<WriteReview />}
+          />
           <Route path="/about" element={<About />} />
           <Route path="/catagories" element={<Catagories />} />
-          <Route path="/contact" element={<ContactUs/>} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/search-result/:search" element={<SearchResult />} />
+         
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </>

@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import style from "./NavBar.module.css";
 const NavBar = () => {
   const navigate = useNavigate();
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const user = useSelector((store) => store.userSection);
   const [flag, setFlag] = useState(false);
   const mobile = () => {
@@ -50,14 +50,14 @@ const NavBar = () => {
               onClick={() => {
                 if (Object.keys(user).length !== 0) {
                   console.log(user.user_name);
-                  setLoading(true)
-                  setTimeout(()=>{
+                  setLoading(true);
+                  setTimeout(() => {
                     localStorage.removeItem("sessionToken");
                     dispatch({
                       type: "LOG_OUT",
                     });
-                    setLoading(false)
-                  },1000)
+                    setLoading(false);
+                  }, 1000);
                 } else {
                   navigate("/login");
                 }
@@ -87,27 +87,38 @@ const NavBar = () => {
         <div className="border" />
         <li type="button">
           <button
-            className={`btn btn-outline-primary px-4 py-2 fw-semibold fs-6 rounded-pill`}
+            className={
+              Object.keys(user).length !== 0
+                ? `btn btn-outline-danger px-4 py-2 fw-semibold fs-6 rounded-pill`
+                : `btn btn-outline-primary px-4 py-2 fw-semibold fs-6 rounded-pill`
+            }
             onClick={() => {
               if (Object.keys(user).length !== 0) {
                 console.log(user.user_name);
+                setLoading(true);
+                setTimeout(() => {
+                  localStorage.removeItem("sessionToken");
+                  dispatch({
+                    type: "LOG_OUT",
+                  });
+                  setLoading(false);
+                }, 1000);
               } else {
                 navigate("/login");
               }
             }}
           >
-            {Object.keys(user).length !== 0 ? user.user_name : "Login"}
+            {Object.keys(user).length !== 0 ? "Log Out" : "Login"}
           </button>
-          <button>Log Out</button>
         </li>
       </ul>
-      <div className={loading?`d-block`:`d-none`}>
+      <div className={loading ? `d-block` : `d-none`}>
         <div
           className={`position-absolute bg-white opacity-75`}
           style={{ width: "98.9vw", height: "93vh", zIndex: 15 }}
         ></div>
-          <div className={style.circle}>
-            <div className={style.loader}></div>
+        <div className={style.circle}>
+          <div className={style.loader}></div>
         </div>
       </div>
     </div>

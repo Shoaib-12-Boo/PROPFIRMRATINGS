@@ -19,29 +19,26 @@ const SearchResult = () => {
   const getData = (item) => {
     if (item == "Any") {
       filterArray = companies;
-      setfilterArray([...filterArray]);
     } else if (item == "2") {
       filterArray = companies.filter((data) => {
         if (data.company_rating >= 2) {
           return data;
         }
       });
-      setfilterArray([...filterArray]);
     } else if (item == "3") {
       filterArray = companies.filter((data) => {
         if (data.company_rating >= 3) {
           return data;
         }
       });
-      setfilterArray([...filterArray]);
     } else if (item == "4") {
       filterArray = companies.filter((data) => {
         if (data.company_rating >= 4) {
           return data;
         }
       });
-      setfilterArray([...filterArray]);
     }
+    setfilterArray([...filterArray]);
   };
   // console.log(filterArray);
   return (

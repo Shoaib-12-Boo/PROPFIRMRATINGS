@@ -28,8 +28,8 @@
 }
 .reviewNav {
   background-image: linear-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(0, 0, 0, 0.83)
+    rgba(255, 255, 255, 0.3) -60%,
+    rgba(0, 0, 0, 0.9) 70%
   );
 }
 

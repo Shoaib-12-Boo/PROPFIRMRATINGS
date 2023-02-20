@@ -1,82 +1,111 @@
 import React from "react";
 import "./ContactUs.css";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-hot-toast";
 
 const ContactUs = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log("Hello");
+
+    emailjs
+      .sendForm(
+        "service_389zcin",
+        "template_kvuitoe",
+        form.current,
+        "rZusF1rfhWhB4bVbD"
+      )
+      .then((result) => {
+        console.log(result.text);
+        toast.success("Successfully Login");
+      })
+      .catch((error) => {
+        console.log(error.text);
+        toast.error("Oops, got some error");
+      });
+  };
   return (
     <>
-     <div className={` contactPage py-5 rounded `}>
-     <section id="contact ">
-        <div className="section-content text-center text-white w-50 m-auto ">
-          <h1 className="section-header fw-bold">
-            Get in{" "}
-            <span
-              className="content-header wow fadeIn "
-              data-wow-delay="0.2s"
-              data-wow-duration="2s"
-            >
-
-              Touch with us
-            </span>
-          </h1>
-          <h3>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
-          </h3>
-        </div>
-        <div className="contact-section text-white mt-4">
-          <div className="container">
-            <form >
-              <div className="col-md-6 form-line m-auto">
-                <div className="form-group">
-                  <label htmlFor="exampleInputUsername">Your name</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id
-                    placeholder=" Enter Name"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="exampleInputEmail">Email Address</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="exampleInputEmail"
-                    placeholder=" Enter Email id"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="telephone">Mobile No.</label>
-                  <input
-                    type="tel"
-                    className="form-control"
-                    id="telephone"
-                    placeholder=" Enter 10-digit mobile no."
-                  />
-                </div>
-              </div>
-              <div className="col-md-6 m-auto">
-                <div className="form-group">
-                  <label htmlFor="description"> Message</label>
-                  <textarea
-                    className="form-control"
-                    id="description"
-                    placeholder="Enter Your Message"
-                    defaultValue={""}
-                  />
-                </div>
-                <div className="">
-                  <button type="button" className=" border btn btn-default submit">
-                    <i className="fa fa-paper-plane" aria-hidden="true" /> Send
-                    Message
-                  </button>
-                </div>
-              </div>
-            </form>
+      <div className={` contactPage py-5 rounded `}>
+        <section id="contact ">
+          <div className="section-content text-center text-white w-50 m-auto ">
+            <h1 className="section-header fw-bold">
+              Get in{" "}
+              <span
+                className="content-header wow fadeIn "
+                data-wow-delay="0.2s"
+                data-wow-duration="2s"
+              >
+                Touch with us
+              </span>
+            </h1>
+            <h3>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry
+            </h3>
           </div>
-        </div>
-      </section>
-     </div>
+          <div className="contact-section text-white mt-4">
+            <div className="container">
+              <form ref={form} onSubmit={sendEmail}>
+                <div className="col-md-6 form-line m-auto">
+                  <div className="form-group">
+                    <label htmlFor="exampleInputUsername">Your name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control"
+                      id
+                      placeholder=" Enter Name"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="exampleInputEmail">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      id="exampleInputEmail"
+                      placeholder=" Enter Email id"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="telephone">Mobile No.</label>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      id="telephone"
+                      placeholder=" Enter 10-digit mobile no."
+                    />
+                  </div>
+                </div>
+                <div className="col-md-6 m-auto">
+                  <div className="form-group">
+                    <label htmlFor="description"> Message</label>
+                    <textarea
+                      name="message"
+                      className="form-control"
+                      id="description"
+                      placeholder="Enter Your Message"
+                      defaultValue={""}
+                    />
+                  </div>
+                  <div className="">
+                    <input
+                      type="submit"
+                      className=" border btn btn-default submit"
+                    />
+                    {/* <i className="fa fa-paper-plane" aria-hidden="true" /> Send
+                    Message */}
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
     </>
   );
 };
