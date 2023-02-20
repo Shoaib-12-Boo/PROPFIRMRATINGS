@@ -9,32 +9,83 @@ const SearchResult = () => {
   const param = useParams();
   const navigate = useNavigate();
   const [companies, setCompanies] = useState([]);
+  let [filterArray, setfilterArray] = useState([...companies]);
   useEffect(() => {
     axios.get("/get-search-companies?word=" + param.search).then((resp) => {
       setCompanies(resp.data.searchCompanies);
+      setfilterArray(resp.data.searchCompanies);
     });
   }, []);
+  const getData = (item) => {
+    if (item == "Any") {
+      filterArray = companies;
+      setfilterArray([...filterArray]);
+    } else if (item == "2") {
+      filterArray = companies.filter((data) => {
+        if (data.company_rating >= 2) {
+          return data;
+        }
+      });
+      setfilterArray([...filterArray]);
+    } else if (item == "3") {
+      filterArray = companies.filter((data) => {
+        if (data.company_rating >= 3) {
+          return data;
+        }
+      });
+      setfilterArray([...filterArray]);
+    } else if (item == "4") {
+      filterArray = companies.filter((data) => {
+        if (data.company_rating >= 4) {
+          return data;
+        }
+      });
+      setfilterArray([...filterArray]);
+    }
+  };
+  // console.log(filterArray);
   return (
     <div>
       <h2 className={`mx-auto text-center p-5`}>
         Result for{" "}
         {param.search.charAt(0).toUpperCase() + param.search.slice(1)}
       </h2>
+
       {companies.length ? (
         <div className="container bg-light rounded-4 py-5 mb-5 d-flex">
           <div className={`col-lg-3 border bg-white rounded-4`}>
             <h5 className={`text-dark pt-3 ps-1 fw-semibold`}>Rating</h5>
             <div className={`ms-3 my-2`}>
-              <button className={`btn border border-dark w-25 text-dark fs-6`}>
+              <button
+                onClick={() => {
+                  getData("Any");
+                }}
+                className={`btn border border-dark w-25 text-dark fs-6`}
+              >
                 Any
               </button>
-              <button className={`btn border border-dark w-25 text-dark fs-6`}>
+              <button
+                onClick={() => {
+                  getData("2");
+                }}
+                className={`btn border border-dark w-25 text-dark fs-6`}
+              >
                 2.0+
               </button>
-              <button className={`btn border border-dark w-25 text-dark fs-6`}>
+              <button
+                onClick={() => {
+                  getData("3");
+                }}
+                className={`btn border border-dark w-25 text-dark fs-6`}
+              >
                 3.0+
               </button>
-              <button className={`btn border border-dark w-25 text-dark fs-6`}>
+              <button
+                onClick={() => {
+                  getData("4");
+                }}
+                className={`btn border border-dark w-25 text-dark fs-6`}
+              >
                 4.0+
               </button>
             </div>
@@ -52,21 +103,24 @@ const SearchResult = () => {
               />
             </div>
             <h5 className="company-heading fw-semibold">Company Status</h5>
-            
-            <div className="box-field-1 mt-3 d-flex justify-content-between">
-            <h6>Verified <i class="fa fa-thin fa-circle-exclamation"></i></h6>
-            <input className={style.checkbox1} type="checkbox" />
-          </div>
-          
-          <div className="box-field-1 mt-3 d-flex justify-content-between">
-            <h6>Claimed <i class="fa fa-regular fa-circle-exclamation"></i></h6>
-            <input className= {style.checkbox1} type="checkbox" />
-          </div>
 
+            <div className="box-field-1 mt-3 d-flex justify-content-between">
+              <h6>
+                Verified <i class="fa fa-thin fa-circle-exclamation"></i>
+              </h6>
+              <input className={style.checkbox1} type="checkbox" />
+            </div>
+
+            <div className="box-field-1 mt-3 d-flex justify-content-between">
+              <h6>
+                Claimed <i class="fa fa-regular fa-circle-exclamation"></i>
+              </h6>
+              <input className={style.checkbox1} type="checkbox" />
+            </div>
           </div>
           <div className={`col-lg-1`}></div>
           <div className={`col-lg-8 bg-light`}>
-            {companies.map((item) => {
+            {filterArray.map((item) => {
               return (
                 <div
                   onClick={() => {
