@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import Varification from "./Components/Verification/Verification";
 
 function App() {
   let token = localStorage.getItem("sessionToken");
@@ -38,6 +39,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/verify/:token" element={<Home />} />
           <Route path="/review/:companyId" element={<Review />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
@@ -48,6 +50,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/catagories" element={<Catagories />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/verify" element={<Varification/>} />
           <Route path="/search-result/:search" element={<SearchResult />} />
          
         </Routes>

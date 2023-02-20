@@ -1,15 +1,82 @@
 const route = require("express").Router();
 const { default: axios } = require("axios");
 const User = require("../db/models/users");
-const jsonwebtoken = require('jsonwebtoken')
+const jsonwebtoken = require('jsonwebtoken');
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  secure:true,
+  auth: {
+    user: 'ayannaseer70065988@gmail.com',
+    pass: "obbnzwostcxlofgi",
+  },
+});
 
 route.post("/signup", (req, resp) => {
-  let user = new User(req.body);
-  user.save();
-  resp.json({
-    success: true,
+  const token = jsonwebtoken.sign(
+    {
+      data: req.body,
+    },
+    "ourSecretKey",
+    { expiresIn: "10m" }
+  );
+  const mailConfigurations = {
+    // It should be a string of sender/server email
+    from: "ayanaseer70065988@gmail.com",
+  
+    to: req.body.user_email,
+  
+    // Subject of Email
+    subject: "Email Verification",
+  
+    // This would be the text of email body
+    text: `Hi! There, You have recently visited 
+             our website and entered your email.
+             Please follow the given link to verify your email
+             http://localhost:2700/verify/${token}
+             Thanks`,
+  };
+  transporter.sendMail(mailConfigurations, function (error, info) {
+    if (error){
+        console.log(error)
+        throw Error(error);
+  }else{    
+      console.log("Email Sent Successfully");
+      console.log(info);
+  }
+  });
+
+
+});
+
+route.get('/verify/:token([a-zA-Z0-9-_=]+\.[a-zA-Z0-9-_=]+\.[a-zA-Z0-9-_.+/=]*)', (req, res)=>{
+  console.log('Received request for /verify');
+  const token = req.params.token;
+  console.log(req)
+  // Verifying the JWT token 
+  jsonwebtoken.verify(token, 'ourSecretKey',async function(err, decoded) {
+      if (err) {
+          console.log(err +"1");
+          res.send("Email verification failed, possibly the link is invalid or expired");
+      }
+      else {
+          console.log(decoded)
+          let user = new User(decoded.data);
+          await user.save();
+          let log = User.findOne({user_name:decoded.data.user_name})
+          if(log){
+            res.json({
+              success: true,
+              user:log
+            });
+          }
+      }
   });
 });
+
+
+
 
 route.post("/login", async (req, resp) => {
   let user = await User.findOne(req.body);
