@@ -1,18 +1,28 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import style from "./Home.module.css";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const Home = () => {
   let arr = [1, 2, 3, 4, 5, 6, 7, 8];
   let cryptoArr = [1, 2, 3, 4];
+  const param = useParams()
   const form = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const searchCompany = (data) => {
     navigate("/search-result/" + data.search);
   };
-
+  if(param.token){
+    axios.get('/verify/'+param.token).then((resp)=>{
+      dispatch({
+        type: "LOGINDATA",
+        payload: resp.data.user,
+      });
+    })
+    }
   useEffect(() => {
     axios.get("/get-recent-reviews").then((resp) => {
       console.log(resp.data);

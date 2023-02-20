@@ -20,7 +20,7 @@ const SignUp = () => {
         if (resp.data.success) {
           form.reset();
           toast.success("SignUp Successfully");
-          navigate("/login");
+          navigate("/verify");
         }
       })
       .catch((err) => {
