@@ -1,10 +1,7 @@
-.logo{
-    /* background-color: white; */
-    width: 100%;
-    max-width: 40px;
-}
 .main{
     position: relative;
+    padding:3rem 5rem;
+    height: 130px;
 }
 .fontsize {
     font-size: large;
@@ -19,4 +16,37 @@
     color:white !important;
     background-color: rgba(202, 204, 202, 0.822) !important;
     font-size: larger !important;
+}
+ 
+.head{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width:775px) {
+    .overflow{
+        left: 16%;
+    }
+    .head{
+        justify-content: space-between;
+    }
+    .head h4{
+        font-size: large;
+        letter-spacing: 1px;
+    }
+}
+@media screen and (max-width:430px) {
+    .overflow{
+        left:5%;
+        /* position: static; */
+        overflow: hidden;
+        width: 90% !important;
+    }
+    .main{
+        padding: 3rem 2rem;
+    }
+    .main{
+        margin-bottom: 5rem;
+    }
+
 }

@@ -323,7 +323,7 @@ const Catagories = () => {
   return (
     <div>
       <div className={`text-center py-5 bg-light`}>
-        <h2 className={`fw-bold text-dark mt-4`}>What are you looking for?</h2>
+        <h2 className={`fw-bold text-dark ${style.heading} mt-4`}>What are you looking for?</h2>
         <div className={`mx-auto bg-white rounded-3 mt-3 mb-5 ${style.inputP}`}>
           <i className={`fa ${style.seachicon} me-3 fa-magnifying-glass`}></i>
           <input
@@ -334,10 +334,10 @@ const Catagories = () => {
         </div>
       </div>
       <div className={`container-fluid py-5`}>
-        <h3 className={`text-dark fw-semibold `}>
+        <h3 className={`text-dark fw-semibold ${style.heading}`}>
           Explore companies by category
         </h3>
-        <div className={`d-flex flex-wrap pt-4 gap-3`} style={{padding:'0px 2.6%'}}>
+        <div className={`d-flex ${style.catag} flex-wrap pt-4 justify-content-center gap-3`}>
           <div className="d-flex flex-column gap-3">
             {cata1.map((item) => {
               return (

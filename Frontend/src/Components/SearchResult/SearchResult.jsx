@@ -103,14 +103,14 @@ const SearchResult = () => {
 
             <div className="box-field-1 mt-3 d-flex justify-content-between">
               <h6>
-                Verified <i class="fa fa-thin fa-circle-exclamation"></i>
+                Verified <i className="fa fa-thin fa-circle-exclamation"></i>
               </h6>
               <input className={style.checkbox1} type="checkbox" />
             </div>
 
             <div className="box-field-1 mt-3 d-flex justify-content-between">
               <h6>
-                Claimed <i class="fa fa-regular fa-circle-exclamation"></i>
+                Claimed <i className="fa fa-regular fa-circle-exclamation"></i>
               </h6>
               <input className={style.checkbox1} type="checkbox" />
             </div>

@@ -25,23 +25,22 @@ const WriteReview = () => {
     <div className={`pb-5`}>
       <form onSubmit={form.handleSubmit(reviewSubmit)}>
       <section
-        className={`container-fluid bg-dark text-white p-5 rounded-3 ${style.main}`}
+        className={`container-fluid bg-dark text-white ${style.main}`}
       >
-        <div className={`row`}>
-          <div className={`col-sm-4 px-0 text-sm-end`}>
+        <div className={`${style.head}`}>
+          <div className={`px-0`}>
             <h4 className="fw-bold">Write a Review</h4>
           </div>
-          <div className="col-4" />
-          <div className="col-sm-4 fw-bold">
+          <div>
             
-            <span className={`fs-4 mt-2`}>{param.companyName}</span>
+            <h4 className={`fw-bold`}>{param.companyName}</h4>
           </div>
         </div>
         <div
-          className={`col-md-6 p-2 bg-white text-black ${style.overflow} rounded-2`}
+          className={`col-md-8 col-lg-6 col-sm-12 p-2 bg-white text-black ${style.overflow} rounded-2`}
         >
           <div className={`row`}>
-            <div className={`col-md-8 mt-1 fw-semibold ${style.fontsize}`}>
+            <div className={`col-md-8 col-sm-6 mt-1 fw-semibold ${style.fontsize}`}>
               <h5>Rate Your Recent experience</h5>
             </div>
             <select {...form.register("rating")} className= "col-md-3 mt-2 form-select" name="" id="">
@@ -56,7 +55,7 @@ const WriteReview = () => {
       </section>
       <section className="container-fluid mt-5">
         <div
-          className="col-md-6 m-auto bg-white shadow rounded-2"
+          className="col-md-8 col-lg-6 col-sm-10 m-auto bg-white shadow rounded-2"
           style={{ padding: "1rem" }}
         >
           

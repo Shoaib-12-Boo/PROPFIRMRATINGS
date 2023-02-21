@@ -52,7 +52,8 @@
   .backg {
     height: 100vh;
     background-image: none;
-    border-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     height: 400px;
     background-image: linear-gradient(
       to bottom right,
@@ -61,7 +62,7 @@
     );
   }
   .navdiv h2 {
-    font-size: medium;
+    font-size: large;
   }
   .navPic {
     display: none;

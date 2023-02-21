@@ -1,18 +1,41 @@
 .inputP input::placeholder{
-    color: black;
+    color: #343a40;
+    font-size: large;
+    font-weight: bold;
 }
 .inputP input{
-    width: 90%;
+    width: 80%;
 }
 .inputP{
     width: 40%;
 }
 
 .seachicon::before{
+    color: #343a40;
     font-size: 26px;
 }
 
 .divCata{
     width: 300px;
     height: fit-content;
+}
+@media only screen and (max-width:1030px) {
+    .catag{
+        padding: 0 100px;
+    }
+}
+@media only screen and (max-width:775px) {
+    .catag{
+        padding: 0 0;
+    }
+}
+@media only screen and (max-width:430px) {
+    .inputP{
+        width: 90% !important;
+    }
+}
+@media only screen and (max-width:330px) {
+    .heading{
+        font-size: x-large;
+    }
 }
