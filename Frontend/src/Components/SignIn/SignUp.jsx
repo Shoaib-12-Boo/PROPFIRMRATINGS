@@ -19,7 +19,7 @@ const SignUp = () => {
       .then((resp) => {
         if (resp.data.success) {
           form.reset();
-          toast.success("SignUp Successfully");
+          // toast.success("SignUp Successfully");
           navigate("/verify");
         }
       })
