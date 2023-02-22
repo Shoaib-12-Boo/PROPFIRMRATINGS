@@ -21,7 +21,6 @@ route.post("/signup", (req, resp) => {
     host: req.get('host'),
     // pathname: req.originalUrl,
   })
-  console.log(originalUrl)
   const token = jsonwebtoken.sign(
     {
       data: req.body,
@@ -47,28 +46,21 @@ route.post("/signup", (req, resp) => {
   };
   transporter.sendMail(mailConfigurations, function (error, info) {
     if (error){
-        console.log(error)
         throw Error(error);
   }else{    
-      console.log("Email Sent Successfully");
-      console.log(info);
   }
   });
   resp.json({success:true})
 });
 
 route.get('/verify/:token([a-zA-Z0-9-_=]+\.[a-zA-Z0-9-_=]+\.[a-zA-Z0-9-_.+/=]*)', (req, res)=>{
-  console.log('Received request for /verify');
   const token = req.params.token;
-  console.log(req)
   // Verifying the JWT token 
   jsonwebtoken.verify(token, 'ourSecretKey',async function(err, decoded) {
       if (err) {
-          console.log(err +"1");
           res.send("Email verification failed, possibly the link is invalid or expired");
       }
       else {
-          console.log(decoded)
           let user = new User(decoded.data);
           await user.save();
           let log = User.findOne({user_name:decoded.data.user_name})

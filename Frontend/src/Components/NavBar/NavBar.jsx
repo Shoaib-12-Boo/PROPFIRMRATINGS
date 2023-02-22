@@ -49,7 +49,6 @@ const NavBar = () => {
               }
               onClick={() => {
                 if (Object.keys(user).length !== 0) {
-                  console.log(user.user_name);
                   setLoading(true);
                   setTimeout(() => {
                     localStorage.removeItem("sessionToken");
@@ -94,7 +93,6 @@ const NavBar = () => {
             }
             onClick={() => {
               if (Object.keys(user).length !== 0) {
-                console.log(user.user_name);
                 setLoading(true);
                 setTimeout(() => {
                   localStorage.removeItem("sessionToken");

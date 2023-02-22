@@ -41,7 +41,6 @@ const SearchResult = () => {
     }
     setfilterArray([...filterArray]);
   };
-  // console.log(filterArray);
   return (
     <div className={`w-100 ${style.herllg}`}>
       <h2 className={`mx-auto text-center p-3 `}>

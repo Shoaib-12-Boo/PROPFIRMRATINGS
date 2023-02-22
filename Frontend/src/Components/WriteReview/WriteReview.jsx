@@ -16,7 +16,6 @@ const WriteReview = () => {
     id.company_id = param.companyId
     data.user_name=user.user_name
     data.company_name=param.companyName
-    console.log(data)
     axios.post("/submit-review", {id,data}).then((resp)=>{
       navigate("/")
     })

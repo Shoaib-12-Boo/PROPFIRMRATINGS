@@ -13,7 +13,6 @@ const Review = () => {
     axios.get("/get-company?id="+param.companyId).then((resp)=>{
       resp.data.company.company_reviews.splice(0,1)
       setCompany(resp.data.company)
-      console.log()
       setCoupon(resp.data.company.company_coupon.split(','))
     })
   },[])

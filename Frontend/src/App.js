@@ -21,7 +21,6 @@ function App() {
   let token = localStorage.getItem("sessionToken");
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(token);
     let token1 = { token };
     if (token) {
       axios.post("/check-session", token1).then((resp) => {

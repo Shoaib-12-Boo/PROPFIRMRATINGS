@@ -9,7 +9,6 @@ const ContactUs = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log("Hello");
 
     emailjs
       .sendForm(
@@ -19,11 +18,9 @@ const ContactUs = () => {
         "Js3faX5up03Zu1rh5"
       )
       .then((result) => {
-        console.log(result.text);
         toast.success("Successfully Login");
       })
       .catch((error) => {
-        console.log(error.text);
         toast.error("Oops, got some error");
       });
   };

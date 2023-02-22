@@ -65,7 +65,6 @@ const CompanyForm = () => {
     formG.append('company_description',data.company_description);
     formG.append('company_reviews',[]);
     formG.append('company_logo',data.company_logo[0]);
-    console.log(formG)
     axios.post("/update-company", formG);
     form.reset();
     navigate('/admin/companies')
