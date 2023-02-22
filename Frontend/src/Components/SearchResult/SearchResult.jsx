@@ -5,6 +5,7 @@ import countryList from "react-select-country-list";
 import style from "./SearchResult.module.css";
 
 const SearchResult = () => {
+  const [Hello,setHello] = useState(false)
   const options = useMemo(() => countryList().getData(), []);
   const param = useParams();
   const navigate = useNavigate();
@@ -42,15 +43,16 @@ const SearchResult = () => {
   };
   // console.log(filterArray);
   return (
-    <div>
-      <h2 className={`mx-auto text-center p-5`}>
+    <div className={`w-100 ${style.herllg}`}>
+      <h2 className={`mx-auto text-center p-3 `}>
         Result for{" "}
         {param.search.charAt(0).toUpperCase() + param.search.slice(1)}
       </h2>
-
+      
       {companies.length ? (
-        <div className="container bg-light rounded-4 py-5 mb-5 d-flex">
-          <div className={`col-lg-3 border bg-white rounded-4`}>
+        <div className={`container bg-light ${style.maindiv} rounded-4 py-5 mb-5 d-flex`}>
+          <button onClick={()=>{setHello(current=>!current)}} className={`btn mx-auto ${style.filterbtn} btn-light mb-3`}>Filter</button>
+          <div className={Hello?`col-lg-3 col-sm-12 col-md-4 border bg-white rounded-4`:`d-none`}>
             <h5 className={`text-dark pt-3 ps-1 fw-semibold`}>Rating</h5>
             <div className={`ms-3 my-2`}>
               <button
@@ -115,8 +117,8 @@ const SearchResult = () => {
               <input className={style.checkbox1} type="checkbox" />
             </div>
           </div>
-          <div className={`col-lg-1`}></div>
-          <div className={`col-lg-8 bg-light`}>
+          <div className={`col-lg-1 col-md-0 ${style.emptydiv}`}></div>
+          <div className={`col-lg-8 col-md-10 col-sm-12 bg-light`}>
             {filterArray.map((item) => {
               return (
                 <div

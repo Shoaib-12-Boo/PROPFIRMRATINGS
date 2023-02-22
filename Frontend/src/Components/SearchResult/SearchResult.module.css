@@ -5,3 +5,18 @@
 .checkbox1{
     width: 20px;
 }
+@media screen and (max-width:430px) {
+  .emptydiv,.filterG{
+        display: none;
+    }
+.maindiv{
+    flex-direction: column !important;
+}
+.herllg{
+    padding:30px 0px !important;
+    overflow-x: hidden !important;
+}
+.filterbtn{
+    width: 90%;
+}
+}

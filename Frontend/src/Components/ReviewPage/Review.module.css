@@ -6,7 +6,7 @@
   background-color: rgb(93, 230, 93) !important;
 }
 .starbgGood::before {
-  font-size: x-large;
+  font-size: large;
 }
 .starbg {
   background-color: lightgray;
@@ -74,5 +74,8 @@
 
   .reviewNav {
     flex-direction: column;
+  }
+  .centerhead{
+    justify-content: center;
   }
 }

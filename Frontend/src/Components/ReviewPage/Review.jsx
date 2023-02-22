@@ -11,7 +11,9 @@ const Review = () => {
   const param = useParams()
   useEffect(()=>{
     axios.get("/get-company?id="+param.companyId).then((resp)=>{
+      resp.data.company.company_reviews.splice(0,1)
       setCompany(resp.data.company)
+      console.log()
       setCoupon(resp.data.company.company_coupon.split(','))
     })
   },[])
@@ -22,7 +24,7 @@ let review = [1, 2, 3];
       <div
         className={`${style.reviewNav} mb-5 text-white py-4 d-flex justify-content-around rounded-4`}
       >
-        <div className={`d-flex px-1  mt-5`}>
+        <div className={`d-flex ${style.centerhead} px-1  mt-5`}>
           <img
             className={`${style.binanceImg} rounded`}
             src={company.company_logo}
@@ -30,29 +32,29 @@ let review = [1, 2, 3];
           />
           <div className={`ps-3`}>
             <h3>{company.company_name}</h3>
-            <p className={`text-secondary`}>Reviews 1 . Excellent</p>
+            <p className={`text-secondary`}>Reviews . Excellent</p>
             <div>
               <i
-                className={`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`}
+                className={company.company_rating>=1?`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
               />
               <i
-                className={`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`}
+                className={company.company_rating>=2?`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
               />
               <i
-                className={`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`}
+                className={company.company_rating>=3?`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
               />
               <i
-                className={`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`}
+                className={company.company_rating>=4?`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
               />
               <i
-                className={`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`}
+                className={company.company_rating==5?`fa-solid ms-1 p-1 ${style.starbg} ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
               />
             </div>
           </div>
         </div>
         <div className={`${style.topside}`}>
           <div className={`${style.visit}`}>
-            <a href={company.company_website} target='_blank'
+            <a href={"https://"+company.company_website} target='_blank'
               className={`border border-white text-white rounded ps-3 pe-5 py-3 text-center `}
             >
               Visit company site
@@ -131,11 +133,6 @@ let review = [1, 2, 3];
             >
               Filter by rating
             </p>
-
-            <div>
-              <span>Sort: </span>
-              <p className={`border d-inline-block p-2 rounded`}>Recent</p>
-            </div>
           </div>
           {/* ------------------filter-------------------------- */}
           <div
@@ -299,49 +296,45 @@ let review = [1, 2, 3];
           {/* ----------------------filte end--------------------- */}
           {""}
           <div className={``}>
-            {review.map(() => {
+            {company.company_reviews?company.company_reviews.map((item) => {
               return (
                 <div className={`shadow p-4 mb-3`}>
                   <div className={`rounded-circle bg-dark d-inline-block`}>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </div>
                   <p className={`text-dark d-inline-block ms-3 rounded`}>
-                    Adil Aijaz
+                    {item.user_name}
+                    
                   </p>
                   <br />
-                  <p className={`border-bottom`}>11/30/2022</p>
+                  <p className={`border-bottom`}>{item.date}</p>
                   <div className={`mb-3`}>
                     <i
-                      className={`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`}
+                      className={item.rating>=1?`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
                     />
                     <i
-                      className={`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`}
+                      className={item.rating>=2?`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
                     />
                     <i
-                      className={`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`}
+                      className={item.rating>=3?`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
                     />
                     <i
-                      className={`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`}
+                      className={item.rating>=4?`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
                     />
                     <i
-                      className={`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`}
+                      className={item.rating==5?`fa-solid ms-1 p-1 ${style.starbgGood} fa-star`:`fa-solid ms-1 p-1 ${style.starbg} fa-star`}
                     />
+                    
                   </div>
                   <div>
-                    <h6>This is amazinggg!</h6>
+                    <h6>{item.title}</h6>
                     <p className={`border-bottom`}>
-
-                      "I'm quite happy to post this 5-star for, as I bellive
-                      they've more than earned it and continues to daily! I
-                      srchsed a Lifetime Membership and got this."I'm quite
-                      happy to post this 5-star for, as I bellive they've more
-                      than earned it and continues to daily! I srchsed a
-                      Lifetime Membership and got this.
+                    {item.review}
                     </p>
                   </div>
                 </div>
               );
-            })}
+            }):<div>Sorry There is no Review right now</div>}
 
             {/* ---------- */}
           </div>
@@ -358,7 +351,8 @@ let review = [1, 2, 3];
         </div>
       </div>
     </div>
-  );
+  )
+  
 };
 
 export default Review;
