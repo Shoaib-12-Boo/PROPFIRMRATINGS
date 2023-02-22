@@ -5,7 +5,7 @@ import countryList from "react-select-country-list";
 import style from "./SearchResult.module.css";
 
 const SearchResult = () => {
-  const [Hello,setHello] = useState(false)
+  const [Hello,setHello] = useState(true)
   const options = useMemo(() => countryList().getData(), []);
   const param = useParams();
   const navigate = useNavigate();
