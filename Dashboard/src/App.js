@@ -13,20 +13,29 @@ import Reviews from "./pages/Reviews/Review";
 import Company from "./pages/Company/Company";
 import CompanyForm from "./pages/Company/CompanyForm";
 import CompanyFormUpdate from "./pages/Company/CompanyFormUpdate";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from 'axios';
+
 
 function App() {
   const [admin, setAdmin] = useState(false);
-  const loginAdmin = (e) => {
-    e.preventDefault();
-    let values = e.target;
-    if (
-      values.email.value === "demo@demo" &&
-      values.password.value === "demo"
-    ) {
-      setAdmin(true);
-    }
+  const loginAdmin = async(data) => {
+    let resp =await axios.post('/admin-login',data)
+        if(resp.data.success){
+            localStorage.setItem('adminToken',resp.data.token)
+            setAdmin(true)
+        }
   };
+  const token = localStorage.getItem('adminToken')
+  useEffect(()=>{
+    if(token){
+      axios.post('/admin-check-session',token).then((resp)=>{
+        if(resp.data.success){
+          setAdmin(true)
+        }
+      })
+    }
+  },[])
 
   return (
     <Router>
