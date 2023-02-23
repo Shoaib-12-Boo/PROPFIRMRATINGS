@@ -42,7 +42,7 @@ const WriteReview = () => {
             <div className={`col-md-8 col-sm-6 mt-1 fw-semibold ${style.fontsize}`}>
               <h5>Rate Your Recent experience</h5>
             </div>
-            <select {...form.register("rating")} className= "col-md-3 mt-2 form-select" name="" id="">
+            <select {...form.register("rating")} required className= "col-md-3 mt-2 form-select" name="" id="">
             <option selected value="5">⭐⭐⭐⭐⭐</option>
                 <option value="4">⭐⭐⭐⭐</option>
                 <option value="3">⭐⭐⭐</option>
@@ -64,11 +64,11 @@ const WriteReview = () => {
               </label>
               <input
               {...form.register("title")}
+              required
                 className="form-control"
                 type="text"
                 id="title"
                 placeholder="Highlight your review in few words"
-                required=""
               />
             </div>
             <div className="mt-2 mb-2">
@@ -81,7 +81,8 @@ const WriteReview = () => {
                 id="exp"
                 rows={3}
                 placeholder="Why did you gave this rating? Is the company doing well? How can they improve? Remember to be honest..."
-                defaultValue={""}
+                required
+
               />
             </div>
             <div className="mt-2 mb-2">
@@ -93,12 +94,12 @@ const WriteReview = () => {
                 genuine.
               </p>
               <input
+              required
                 {...form.register("date")}
                 className="form-control"
                 type="date"
                 id="date"
                 placeholder="Highlight your review in few words"
-                required=""
               />
             </div>
             <div className="mt-2 mb-2">
@@ -111,6 +112,7 @@ const WriteReview = () => {
                 className="form-control"
                 type="text"
                 id="title"
+                required
                 placeholder="For ex. 2 months"
               />
             </div>
