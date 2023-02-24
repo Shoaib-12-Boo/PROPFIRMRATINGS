@@ -26,25 +26,16 @@ const ContactUs = () => {
   };
   return (
     <>
-      <div className={` contactPage py-5 rounded `}>
+      <div className={`contactPage py-3 rounded `}>
         <section id="contact ">
-          <div className="section-content text-center text-white w-50 m-auto ">
-            <h1 className="section-header fw-bold">
-              Get in{" "}
-              <span
-                className="content-header wow fadeIn "
-                data-wow-delay="0.2s"
-                data-wow-duration="2s"
-              >
-                Touch with us
-              </span>
-            </h1>
+          <div className="padding text-center text-white m-auto ">
+            <h1 className="fw-bold">Get in Touch with us</h1>
             <h3>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry
             </h3>
           </div>
-          <div className="contact-section text-white mt-4">
+          <div className="text-white mt-4">
             <div className="container">
               <form ref={form} onSubmit={sendEmail}>
                 <div className="col-md-6 form-line m-auto">
@@ -84,9 +75,7 @@ const ContactUs = () => {
                     <textarea
                       name="message"
                       className="form-control"
-                      id="description"
                       placeholder="Enter Your Message"
-                      defaultValue={""}
                     />
                   </div>
                   <div className="">
