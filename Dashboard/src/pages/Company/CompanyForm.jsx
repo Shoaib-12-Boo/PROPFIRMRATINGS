@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import adminLayout from "../../hoc/adminLayout";
 
-
 const CompanyForm = () => {
   const Catagories = [
     "Animals Pets",
@@ -28,8 +27,170 @@ const CompanyForm = () => {
     "Public & Local Services",
     "Vichies & Transportation",
     "Electronics & Technology",
+    "Animal Health",
+    "Animal Parks & Zoo",
+    "Cats & Dogs",
+    "Horses & Riding",
+    "Pet Services",
+    "Pet Stores",
+    "Cosmetics & Makeup",
+    "Hair Care & Styling",
+    "Personal Care",
+    "Salons & Clinics",
+    "Tattoos & Piercings",
+    "Wellness & Spa",
+    "Yoga & Meditation",
+    "Administration & Services",
+    "Associations & Centers",
+    "HR & Recruiting",
+    "Import & Export",
+    "IT & Communication",
+    "Office Space & Supplies",
+    "Print & Graphic Design",
+    "Research & Development",
+    "Sales & Marketing",
+    "Shipping & Logistics",
+    "Wholesale",
+    "Architects & Engineers",
+    "Building Materials",
+    "Chemicals & Plastic",
+    "Construction Services",
+    "Contractors & Consultants",
+    "Factory Equipment",
+    "Garden & Landscaping",
+    "Industrial Supplies",
+    "Manufacturing",
+    "Production Services",
+    "Tools & Equipment",
+    "Appliances & Electronics",
+    "Audio & Visual",
+    "Computers & Phones",
+    "Internet & Software",
+    "Repair & Services",
+    "Agriculture & Produce",
+    "Asian Grocery Stores",
+    "Bakery & Pastry",
+    "Beer & Wine",
+    "Beverages & Liquor",
+    "Candy & Chocolate",
+    "Coffee & Tea",
+    "Food Production",
+    "Fruits & Vegetables",
+    "Grocery Stores & Markets",
+    "Lunch & Catering",
+    "Meat, Seafood & Eggs",
+    "Smoking & Tobacco",
+    "Clinics",
+    "Dental Services",
+    "Diagnostics & Testing",
+    "Doctors & Surgeons",
+    "Health Equipment",
+    "Hospital & Emergency",
+    "Medical Specialists",
+    "Mental Health",
+    "Pharmacy & Medicine",
+    "Physical Aids",
+    "Pregnancy & Children",
+    "Therapy & Senior Health",
+    "Vision & Hearing",
+    "Art & Handicraft",
+    "Astrology & Numerology",
+    "Fishing & Hunting",
+    "Hobbies",
+    "Metal, Stone & Glass Work",
+    "Music &Instruments",
+    "Needlework & Knitting",
+    "Outdoor Activities",
+    "Painting & Paper",
+    "African & Pacific Cuisine",
+    "Bars & Cafes",
+    "Chinese & Korean Cuisine",
+    "European Cuisine",
+    "General Restaurants",
+    "Japanese Cuisine",
+    "Mediterranean Cuisine",
+    "Middle Eastern Cuisine",
+    "North & South American Cuisine",
+    "Southeast Asian Cuisine",
+    "Takeaway",
+    "Vegetarian & Diet",
+    "Air & Water Transport",
+    "Airports & Parking",
+    "Auto Parts & Wheels",
+    "Bicycles",
+    "Cars & Trucks",
+    "Motorcycle & Powersports",
+    "Other Vehicles & Trailers",
+    "Taxis & Public Transport",
+    "Vehicle Rental",
+    "Vehicle Repair & Fuel",
+    "Accommodation & Lodging",
+    "Activities & Tours",
+    "Airlines & Air Travel",
+    "Hotels",
+    "Travel Agencies",
+    "Ball Games",
+    "Bat-and-ball Games",
+    "Bowls & Lawn Sports",
+    "Dancing & Gymnastics",
+    "Equipment & Associations",
+    "Extreme Sports",
+    "Fitness & Weight Lifting",
+    "Golf & Ultimate",
+    "Hockey &Ice Skating",
+    "Martial arts & Wrestling",
+    "Outdoor & Winter Sports",
+    "Shooting & Target Sports",
+    "Swimming & Water Sports",
+    "Tennis & Racquet Sports",
+    "Accessories",
+    "Clothing & Underwear",
+    "Clothing Rental & Repair",
+    "Costume & Wedding",
+    "Jewelry & Watches",
+    "Malls & Marketplaces",
+    "Bathroom & Kitchen",
+    "Cultural Goods",
+    "Decoration & Interior",
+    "Energy & Heating",
+    "Fabric & Stationery",
+    "Furniture Stores",
+    "Garden & Pond",
+    "Home & Garden Services",
+    "Home Goods Stores",
+    "Home Improvements",
+    "Employment & Career",
+    "Funeral & Memorial",
+    "Housing Associations",
+    "Kids & Family",
+    "Military & Veteran",
+    "Nature & Environment",
+    "Professional Organizations",
+    "Public Services & Welfare",
+    "Religious Institutions",
+    "Shelters & Homes",
+    "Waste Management",
+    "Books & Magazines",
+    "Media & Information",
+    "Photography",
+    "Video & Sound",
+    "Customs & Toll",
+    "Government Department",
+    "Law Enforcement",
+    "Lawyers & Attorneys",
+    "Legal Service Providers",
+    "Libraries & Archives",
+    "Municipal Department",
+    "Registration Services",
+    "Cleaning Service Providers",
+    "Craftsman",
+    "House Services",
+    "House Sitting & Security",
+    "Moving & Storage",
+    "Plumbing & Sanitation",
+    "Repair Service Providers",
   ];
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   let [cata, setCata] = useState([]);
   const change = (e) => {
@@ -49,20 +210,19 @@ const CompanyForm = () => {
   const form = useForm();
 
   const formData = (data) => {
-    let formG = new FormData()
-    formG.append('company_category',cata);
-    formG.append('company_coupon',data.company_coupon.split(" "));
-    formG.append('company_rating',5);
-    formG.append('company_name',data.company_name);
-    formG.append('company_website',data.company_website);
-    formG.append('company_location',data.company_location);
-    formG.append('company_description',data.company_description);
-    formG.append('company_reviews',[]);
-    formG.append('company_logo',data.company_logo[0]);
+    let formG = new FormData();
+    formG.append("company_category", cata);
+    formG.append("company_coupon", data.company_coupon.split(" "));
+    formG.append("company_rating", 5);
+    formG.append("company_name", data.company_name);
+    formG.append("company_website", data.company_website);
+    formG.append("company_location", data.company_location);
+    formG.append("company_description", data.company_description);
+    formG.append("company_reviews", []);
+    formG.append("company_logo", data.company_logo[0]);
     axios.post("/add-company", formG);
     form.reset();
-    navigate('/admin/companies')
-
+    navigate("/admin/companies");
   };
 
   return (
@@ -128,10 +288,24 @@ const CompanyForm = () => {
           <div>
             <h6>Catagories</h6>
             <div className="bg-white p-3">
-              {cata.map((item,index)=>{
-                return(
-                  <div className="d-inline-block rounded-pill px-2" style={{backgroundColor:'lightgray'}}>{item}<button onClick={()=>{cata.splice(index,1); setCata([...cata])}} className="btn rounded-circle">x</button></div>
-                )
+              {cata.map((item, index) => {
+                return (
+                  <div
+                    className="d-inline-block rounded-pill px-2"
+                    style={{ backgroundColor: "lightgray" }}
+                  >
+                    {item}
+                    <button
+                      onClick={() => {
+                        cata.splice(index, 1);
+                        setCata([...cata]);
+                      }}
+                      className="btn rounded-circle"
+                    >
+                      x
+                    </button>
+                  </div>
+                );
               })}
             </div>
             <select required onChange={change} className={`form-select`}>

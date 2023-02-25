@@ -5,7 +5,7 @@ import countryList from "react-select-country-list";
 import style from "./SearchResult.module.css";
 
 const SearchResult = () => {
-  const [Hello,setHello] = useState(true)
+  const [Hello, setHello] = useState(true);
   const options = useMemo(() => countryList().getData(), []);
   const param = useParams();
   const navigate = useNavigate();
@@ -47,11 +47,26 @@ const SearchResult = () => {
         Result for{" "}
         {param.search.charAt(0).toUpperCase() + param.search.slice(1)}
       </h2>
-      
+
       {companies.length ? (
-        <div className={`container bg-light ${style.maindiv} rounded-4 py-5 mb-5 d-flex`}>
-          <button onClick={()=>{setHello(current=>!current)}} className={`btn mx-auto ${style.filterbtn} btn-light mb-3`}>Filter</button>
-          <div className={Hello?`col-lg-3 col-sm-12 col-md-4 border bg-white rounded-4`:`d-none`}>
+        <div
+          className={`container bg-light ${style.maindiv} rounded-4 py-5 mb-5 d-flex`}
+        >
+          <button
+            onClick={() => {
+              setHello((current) => !current);
+            }}
+            className={`btn mx-auto ${style.filterbtn} btn-light mb-3`}
+          >
+            Filter
+          </button>
+          <div
+            className={
+              Hello
+                ? `col-lg-3 col-sm-12 col-md-4 border bg-white rounded-4`
+                : `d-none`
+            }
+          >
             <h5 className={`text-dark pt-3 ps-1 fw-semibold`}>Rating</h5>
             <div className={`ms-3 my-2`}>
               <button
@@ -162,10 +177,16 @@ const SearchResult = () => {
           </div>
         </div>
       ) : (
-        <div className={`text-center bg-warning py-5 my-5`}>
-          <h1 className={`fw-bold`} style={{ fontSize: "60px" }}>
-            Oops, I found Nothing
+        <div
+          className={`text-center py-5 my-5`}
+        >
+          <div className={`${style.ops} mx-auto`}>
+            <img className="w-100" src="/Assert/Oops.jpg" alt="" />
+          </div>
+          <h1 className={`fw-bold ${style.headingError}`} style={{ fontSize: "40px" }}>
+            We couldn't find any results,
           </h1>
+          <p className={`${style.paraError}`} style={{fontSize:"25px"}}>Try updating your filters or using different search terms.</p>
         </div>
       )}
     </div>

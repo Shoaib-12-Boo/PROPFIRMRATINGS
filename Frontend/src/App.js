@@ -10,7 +10,7 @@ import Review from "./Components/ReviewPage/Review";
 import WriteReview from "./Components/WriteReview/WriteReview";
 import About from "./Components/About/About";
 import SearchResult from "./Components/SearchResult/SearchResult";
-import Catagories from "./Components/Catagories/Catagories";
+import Categories from "./Components/Categories/Categories";
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -47,7 +47,7 @@ function App() {
             element={<WriteReview />}
           />
           <Route path="/about" element={<About />} />
-          <Route path="/catagories" element={<Catagories />} />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/verify" element={<Varification/>} />
           <Route path="/search-result/:search" element={<SearchResult />} />

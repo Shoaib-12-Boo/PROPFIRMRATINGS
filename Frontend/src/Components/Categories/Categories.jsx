@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Catagories.module.css";
+import style from "./Categories.module.css";
 import { Link } from "react-router-dom";
 
 const Catagories = () => {
@@ -139,6 +139,7 @@ const Catagories = () => {
         "Vision & Hearing",
       ],
     },
+
     {
       icon: '<i class="fa seachicon fa-kitchen-set"/>',
       color: "#ffc5d5",
@@ -206,6 +207,7 @@ const Catagories = () => {
         "Registration Services",
       ],
     },
+
     {
       icon: '<i class="fa fa-computer-classic"/>',
       color: "#ffc5d5",
@@ -217,6 +219,7 @@ const Catagories = () => {
         "Video & Sound",
       ],
     },
+
     {
       icon: '<i class="fa fa-location-smile"/>',
       color: "#ffc5d5",
@@ -320,10 +323,14 @@ const Catagories = () => {
     },
   ];
 
+  
+
   return (
     <div>
       <div className={`text-center py-5 bg-light`}>
-        <h2 className={`fw-bold text-dark ${style.heading} mt-4`}>What are you looking for?</h2>
+        <h2 className={`fw-bold text-dark ${style.heading} mt-4`}>
+          What are you looking for?
+        </h2>
         <div className={`mx-auto bg-white rounded-3 mt-3 mb-5 ${style.inputP}`}>
           <i className={`fa ${style.seachicon} me-3 fa-magnifying-glass`}></i>
           <input
@@ -337,12 +344,14 @@ const Catagories = () => {
         <h3 className={`text-dark fw-semibold ${style.heading}`}>
           Explore companies by category
         </h3>
-        <div className={`d-flex ${style.catag} flex-wrap pt-4 justify-content-center gap-3`}>
+        <div
+          className={`d-flex ${style.catag} flex-wrap pt-4 justify-content-center gap-3`}
+        >
           <div className="d-flex flex-column gap-3">
             {cata1.map((item) => {
               return (
                 <div
-                key={item}
+                  key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
@@ -358,7 +367,6 @@ const Catagories = () => {
                   <div className={`px-3 fs-6`}>
                     {item.cata.map((item1) => {
                       return (
-                        
                         <div key={item1} className={`border-bottom py-2`}>
                           <Link
                             className="fs-6 text-dark mb-3"
@@ -378,7 +386,7 @@ const Catagories = () => {
             {cata2.map((item) => {
               return (
                 <div
-                key={item}
+                  key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
@@ -413,7 +421,7 @@ const Catagories = () => {
             {cata3.map((item) => {
               return (
                 <div
-                key={item}
+                  key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
@@ -448,7 +456,7 @@ const Catagories = () => {
             {cata4.map((item) => {
               return (
                 <div
-                key={item}
+                  key={item}
                   className={`border ${style.divCata} rounded-3 overflow-hidden`}
                 >
                   <div
