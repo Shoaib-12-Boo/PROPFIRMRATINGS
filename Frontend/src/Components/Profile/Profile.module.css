@@ -1,0 +1,20 @@
+.heroSec{
+    height: 400px;
+    background-color: aqua;
+    overflow: hidden;
+    background-size: 100% 100%;
+    background-image: url('./bgprofile.jpg');
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    overflow: hidden;
+    background-color: black;
+    padding: 10px;
+    left: 46.5%;
+    bottom: 60px;
+}
+.avatar img{
+    filter:brightness(0.25) invert(100%);
+}

@@ -10,6 +10,17 @@
   height: 100px;
   width: 250px;
 }
+.dropdown{
+  width: 150px;
+  height: 120px;
+  background-color: white;
+  right: 13%;
+}
+.dropdown ul{
+  padding: 10px;
+  list-style: none;
+  text-align:center;
+}
 /* .cb {
   list-style: none;
 } */

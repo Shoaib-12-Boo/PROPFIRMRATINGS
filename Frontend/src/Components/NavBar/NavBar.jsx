@@ -8,6 +8,7 @@ const NavBar = () => {
   const [loading, setLoading] = useState(false);
   const user = useSelector((store) => store.userSection);
   const [flag, setFlag] = useState(false);
+  const [dropdown,setDropdown]= useState(false)
   const mobile = () => {
     setFlag((current) => !current);
   };
@@ -49,26 +50,48 @@ const NavBar = () => {
               }
               onClick={() => {
                 if (Object.keys(user).length !== 0) {
-                  setLoading(true);
-                  setTimeout(() => {
-                    localStorage.removeItem("sessionToken");
-                    dispatch({
-                      type: "LOG_OUT",
-                    });
-                    setLoading(false);
-                  }, 1000);
+                  setDropdown(current=>!current)
                 } else {
                   navigate("/login");
                 }
               }}
             >
-              {Object.keys(user).length !== 0 ? "Log Out" : "Login"}
+              {Object.keys(user).length !== 0 ? "Profile" : "Login"}
             </button>
           </li>
         </ul>
         <div className={`${style.Mobile} pt-3`}>
           <i onClick={mobile} className={`fa ${style.searchicon} fa-bars`} />
         </div>
+      </div>
+      <div className={dropdown?`position-absolute ${style.dropdown}`:`d-none`}>
+        <ul>
+          <li className={`mb-2`}>
+            <Link
+              className={`fs-6 btn btn-outline-primary rounded-pill p-2`}
+              to={"/user-profile"}
+            >
+              User Profile
+            </Link>
+          </li>{" "}
+          <li>
+            <button
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => {
+                  localStorage.removeItem("sessionToken");
+                  dispatch({
+                    type: "LOG_OUT",
+                  });
+                  setLoading(false);
+                }, 1000);
+              }}
+              className={`btn btn-outline-danger px-3 fw-semibold fs-6 rounded-pill`}
+            >
+              Log Out
+            </button>
+          </li>
+        </ul>
       </div>
       {/* Burger NavBar  */}
       <ul
@@ -93,20 +116,13 @@ const NavBar = () => {
             }
             onClick={() => {
               if (Object.keys(user).length !== 0) {
-                setLoading(true);
-                setTimeout(() => {
-                  localStorage.removeItem("sessionToken");
-                  dispatch({
-                    type: "LOG_OUT",
-                  });
-                  setLoading(false);
-                }, 1000);
+                setDropdown(current=>!current)
               } else {
                 navigate("/login");
               }
             }}
           >
-            {Object.keys(user).length !== 0 ? "Log Out" : "Login"}
+            {Object.keys(user).length !== 0 ? "Profile" : "Login"}
           </button>
         </li>
       </ul>

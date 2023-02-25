@@ -16,6 +16,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import Varification from "./Components/Verification/Verification";
+import ProfilePage from "./Components/Profile/ProfilePage";
 
 function App() {
   let token = localStorage.getItem("sessionToken");
@@ -50,6 +51,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/verify" element={<Varification/>} />
+          <Route path="/user-profile" element={<ProfilePage/>} />
           <Route path="/search-result/:search" element={<SearchResult />} />
          
         </Routes>
