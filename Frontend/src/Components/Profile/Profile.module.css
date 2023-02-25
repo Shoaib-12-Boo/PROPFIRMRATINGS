@@ -5,6 +5,10 @@
     background-size: 100% 100%;
     background-image: url('./bgprofile.jpg');
 }
+.starbgGood {
+    color: white;
+    background-color: rgb(93, 230, 93);
+  }
 .avatar{
     width: 100px;
     height: 100px;
