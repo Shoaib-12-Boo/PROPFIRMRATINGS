@@ -47,6 +47,7 @@ const Home = () => {
                   >
                     <input
                       {...form.register("search")}
+                      required
                       className={` ${style.navText} input border-0 w-75 py-2`}
                       placeholder="Category"
                       type="text"

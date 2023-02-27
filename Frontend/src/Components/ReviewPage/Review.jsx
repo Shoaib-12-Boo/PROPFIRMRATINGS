@@ -17,7 +17,37 @@ const Review = () => {
     })
   },[])
 let [flag, setFlag] = useState(false);
-let review = [1, 2, 3];
+let [filterArray,setfilterArray] = useState(company.company_reviews)
+const getData = (item) => {
+  if (item == "Any") {
+    filterArray = company.company_reviews;
+  } else if (item == "1") {
+    filterArray = company.company_reviews.filter((data) => {
+      if (data.company_rating >= 2) {
+        return data;
+      }
+    });
+  } else if (item == "2") {
+    filterArray = company.company_reviews.filter((data) => {
+      if (data.company_rating >= 2) {
+        return data;
+      }
+    });
+  } else if (item == "3") {
+    filterArray = company.company_reviews.filter((data) => {
+      if (data.company_rating >= 3) {
+        return data;
+      }
+    });
+  } else if (item == "4") {
+    filterArray = company.company_reviews.filter((data) => {
+      if (data.company_rating >= 4) {
+        return data;
+      }
+    });
+  }
+  setfilterArray([...filterArray]);
+};
   return (
     <div className="pb-5">
       <div
@@ -147,26 +177,31 @@ let review = [1, 2, 3];
                   <div>
                     <h6>Rating</h6>
                     <button
+                    onClick={()=>{getData(5)}}
                       className={`btn rounded-0 px-3 btn-outline-light text-dark border rounded-start`}
                     >
                       5
                     </button>
                     <button
+                    onClick={()=>{getData(4)}}
                       className={`btn rounded-0 px-3 btn-outline-light text-dark border`}
                     >
                       4
                     </button>
                     <button
+                    onClick={()=>{getData(3)}}
                       className={`btn rounded-0 px-3 btn-outline-light text-dark border`}
                     >
                       3
                     </button>
                     <button
+                    onClick={()=>{getData(2)}}
                       className={`btn rounded-0 px-3 btn-outline-light text-dark border`}
                     >
                       2
                     </button>
                     <button
+                    onClick={()=>{getData(1)}}
                       className={`btn rounded-0 px-3 btn-outline-light text-dark border rounded-end`}
                     >
                       1
@@ -218,70 +253,10 @@ let review = [1, 2, 3];
                     </div>
                   </div>{" "}
                 </div>
-                <div>
-                  <div>
-                    <h6>Search keyword</h6>
-                    <div className={`rounded border`}>
-                      <input
-                        className={`input bg-white px-2 border-0`}
-                        type="search"
-                        name=""
-                        placeholder="Type keywords here.."
-                        id=""
-                      />
-                      <button className={`text-dark btn`}>🔍</button>
-                    </div>
-                  </div>
-                  <br />
-                  <div>
-                    <h6>Languages</h6>
-                    <div>
-                      <input
-                        type="checkbox"
-                        className={`me-3`}
-                        style={{ width: "50px", height: "20px" }}
-                      />
-                      <label htmlFor="">All Languages</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        className={`me-3`}
-                        style={{ width: "50px", height: "20px" }}
-                      />
-                      <label htmlFor="">English</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        className={`me-3`}
-                        style={{ width: "50px", height: "20px" }}
-                      />
-                      <label htmlFor="">Français</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        className={`me-3`}
-                        style={{ width: "50px", height: "20px" }}
-                      />
-                      <label htmlFor="">Español</label>
-                    </div>
-                    <div>
-                      {" "}
-                      <input
-                        type="checkbox"
-                        className={`me-3`}
-                        style={{ width: "50px", height: "20px" }}
-                      />
-                      <label htmlFor="">Türkçe</label>
-                    </div>
-                  </div>
-                </div>
               </div>
               <hr />
               <div className={`d-flex justify-content-between`}>
-                <button className={`btn text-decoration-underline fs-5 text-primary`}>
+                <button onClick={()=>{getData("Any")}} className={`btn text-decoration-underline fs-5 text-primary`}>
                   Reset
                 </button>
                 <button
@@ -295,7 +270,7 @@ let review = [1, 2, 3];
           {/* ----------------------filte end--------------------- */}
           {""}
           <div className={``}>
-            {company.company_reviews?company.company_reviews.map((item) => {
+            {company.company_reviews?filterArray.map((item) => {
               return (
                 <div className={`shadow p-4 mb-3`}>
                   <div className={`rounded-circle bg-dark d-inline-block`}>
@@ -346,6 +321,55 @@ let review = [1, 2, 3];
             <p className="ms-2 fs-6">
               {company.company_description}
             </p>
+          </div>
+          <div className={`mt-3 px-3 py-4 shadow`}>
+            <h4 className={`fw-semibold`}>
+              Company Info
+            </h4>
+            <div className="mt-4">
+              <h5 className={`fw-semibold`}>Trading platform</h5>
+              <div className={`d-flex`}>
+                <p className={`fw-semibold w-50`}><img className={`w-75`} src="/Assert/metatrader4.png"/></p>
+                <p className={`fw-semibold w-50`}><img className={`w-75`} src="/Assert/metatrader5.png"/></p>
+              </div>
+            </div>
+            <div className="mt-2">
+              <h5 className={`fw-semibold`}>Deposit methods</h5>
+              <div className={`d-flex gap-3`}>
+                <p className={`fs-6`}><i className={`fa fa-credit-card ${style.iconColor}`}></i> Card</p>
+                <p className={`fs-6`}><i className={`fa-brands fa-bitcoin ${style.iconColor}`}></i> Crypto</p>
+                <p className={`fs-6`}><i className={`fa fa-building-columns ${style.iconColor}`}></i> Bank</p>
+                <p className={`fs-6`}><i className={`fa fa-user-group ${style.iconColor}`}></i>P2P</p>
+              </div>
+            </div>
+            
+            <div className="mt-2">
+              <h5 className={`fw-semibold`}>Withdrawal methods</h5>
+              <div className={`d-flex gap-3`}>
+                <p className={`fs-6`}><i className={`fa fa-credit-card ${style.iconColor}`}></i> Card</p>
+                <p className={`fs-6`}><i className={`fa-brands fa-bitcoin ${style.iconColor}`}></i> Crypto</p>
+                <p className={`fs-6`}><i className={`fa fa-building-columns ${style.iconColor}`}></i> Bank</p>
+                <p className={`fs-6`}><i className={`fa fa-user-group ${style.iconColor}`}></i>P2P</p>
+              </div>
+            </div>
+            
+            <div className="mt-2">
+              <h5 className={`fw-semibold`}>Amount sizes</h5>
+              <div className={`d-flex gap-2`}>
+                <div className={`rounded-pill bg-light px-3 py-1`}>$1,00</div>
+                <div className={`rounded-pill bg-light px-3 py-1`}>$5,00</div>
+                <div className={`rounded-pill bg-light px-3 py-1`}>$10,00</div>
+                <div className={`rounded-pill bg-light px-3 py-1`}>$100,00</div>
+              </div>
+            </div>
+            <div className="mt-3">
+              <h5 className={`fw-semibold`}>Rules</h5>
+              <div className={`d-flex gap-2`}>
+                <div className={`rounded-pill bg-light px-2 py-1`}>Maxium loss</div>
+                <div className={`rounded-pill bg-light px-2 py-1`}>Max drawdown</div>
+                <div className={`rounded-pill bg-light px-2 py-1`}>Another sl</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const NavBar = () => {
   const [loading, setLoading] = useState(false);
   const user = useSelector((store) => store.userSection);
   const [flag, setFlag] = useState(false);
-  const [dropdown,setDropdown]= useState(false)
+  const [dropdown, setDropdown] = useState(false);
   const mobile = () => {
     setFlag((current) => !current);
   };
@@ -50,7 +50,7 @@ const NavBar = () => {
               }
               onClick={() => {
                 if (Object.keys(user).length !== 0) {
-                  setDropdown(current=>!current)
+                  setDropdown((current) => !current);
                 } else {
                   navigate("/login");
                 }
@@ -64,10 +64,23 @@ const NavBar = () => {
           <i onClick={mobile} className={`fa ${style.searchicon} fa-bars`} />
         </div>
       </div>
-      <div className={dropdown?`position-absolute ${style.dropdown}`:`d-none`}>
+      <div
+        onClick={() => {
+          setDropdown(false);
+        }}
+        className={dropdown ? `pe-auto` : `pe-none`}
+        style={{ width: "95vw", height: "100vh", position: "absolute" }}
+      ></div>
+      <div
+        style={{ zIndex: 35 }}
+        className={dropdown ? `position-absolute ${style.dropdown}` : `d-none`}
+      >
         <ul>
           <li className={`mb-2`}>
             <Link
+              onClick={() => {
+                setDropdown(false);
+              }}
               className={`fs-6 btn btn-outline-primary rounded-pill p-2`}
               to={"/user-profile"}
             >
@@ -79,10 +92,13 @@ const NavBar = () => {
               onClick={() => {
                 setLoading(true);
                 setTimeout(() => {
+                  navigate("/");
+                  setDropdown(false);
                   localStorage.removeItem("sessionToken");
                   dispatch({
                     type: "LOG_OUT",
                   });
+
                   setLoading(false);
                 }, 1000);
               }}
@@ -116,7 +132,7 @@ const NavBar = () => {
             }
             onClick={() => {
               if (Object.keys(user).length !== 0) {
-                setDropdown(current=>!current)
+                setDropdown((current) => !current);
               } else {
                 navigate("/login");
               }

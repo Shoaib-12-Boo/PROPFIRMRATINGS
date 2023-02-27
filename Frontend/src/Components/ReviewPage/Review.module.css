@@ -18,6 +18,9 @@
 .starbg::before {
   font-size: x-large;
 }
+.iconColor::before{
+  color:  rgb(103, 50, 125);
+}
 .backg {
   background-image: linear-gradient(
     to right,
